@@ -1,12 +1,10 @@
 import './styles/App.css';
-import FormLogin from './components/formLogin';
-import LoginPage from './pages/loginPage';
+import AppRouter from './router';
 
 function App() {
   return (
-    <div className="backgroundPage">
-      <LoginPage tipoLogin={"Fornecedor"}/>
-      <FormLogin />
+    <div className="App">
+      <AppRouter />
     </div>
   );
 }
