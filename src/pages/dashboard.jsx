@@ -1,7 +1,11 @@
-export default function Dashboard() {
-return(
-    <section>
-        <h1>Aqui é a tal da Dashboard</h1>
-    </section>
-)
+import SidebarComponent from "../components/Dashboard/SidebarComponent"
+
+export default function DashboardPage() {
+
+   return(
+    <div>
+      <SidebarComponent />
+    </div>
+   )
+  
 }

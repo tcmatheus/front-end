@@ -1,18 +1,11 @@
-import { useState } from "react";
+import "../styles/Login/loginPage.css";
+
+import GlassLogin from "../components/Login/glassLogin";
 
 export default function LoginPage({ tipoLogin }) {
-
-    const [tipoUsuario, setTipoUsuario] = useState(tipoLogin);
-
-    function mudarUsuario(){
-        setTipoUsuario("Vendedor")
-    }
-
-
   return (
-    <section className={`${tipoUsuario === "Vendedor" ? 'loginVendedor' : 'loginFornecedor'}`}>
-        <h1>{tipoUsuario}</h1>
-        <button onClick={() => mudarUsuario()}>tu é vendedor?</button>
+    <section className="backgroundPage">
+      <GlassLogin tipoLogin={tipoLogin}/>
     </section>
-);
+  );
 }
