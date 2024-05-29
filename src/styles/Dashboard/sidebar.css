@@ -1,0 +1,20 @@
+.custom-sidebar {
+  background-color: #273733;
+  width: 15%; /* Largura da sidebar */
+  height: 100vh; /* Altura total da janela de visualização */
+  position: fixed; /* Fixa a sidebar na posição */
+  left: 0; /* Alinha à esquerda da janela */
+  top: 0; /* Alinha ao topo da janela */
+  color: white; /* Cor do texto */
+  z-index: 1000; /* Garante que a sidebar fique acima de outros conteúdos */
+  box-shadow: 4px 0 5px -2px rgba(0, 0, 0, 0.2); /* Sombra para destacar a sidebar */
+}
+
+.container-loginFields-logo {
+    margin: 20px;
+}
+
+.p-menuitem-link {
+  color: #fff; /* Cor do link */
+  font-size: 16px; /* Tamanho do texto dos links */
+}

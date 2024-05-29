@@ -1,0 +1,21 @@
+.backgroundPage {
+  background-image: url("../../../public/assets/images/backgroundFornecedor.png");
+  /* background-image: url("https://www.picsum.photos/2500"); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+.backgroundPage::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.507);
+}
+
