@@ -1,0 +1,24 @@
+import "../../styles/Dashboard/card.css";
+
+export default function Card({ texto, tipo, valor, paragrafo, image }) {
+  return (
+    <div
+      className={
+        tipo === "secondary"
+          ? "card-container-secondary"
+          : tipo === "third"
+          ? "card-container-third"
+          : tipo === "forth"
+          ? "card-container-forth"
+          : "card-container"
+      }
+    >
+      <div>
+        <p className="cardContentTitle">{texto}</p>
+        <h2 className="cardContentValor">{valor}</h2>
+        <h3 className="">{paragrafo}</h3>
+      </div>
+      <img src={image} alt="" />
+    </div>
+  );
+}
