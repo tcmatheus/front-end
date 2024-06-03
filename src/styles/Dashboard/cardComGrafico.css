@@ -1,0 +1,15 @@
+.card-container {
+    border-radius: 20px;
+    background-color: #ffffff;
+    width: 270px;
+    height: 100px;
+  
+    border-radius: 20px; /* Borda arredondada */
+    display: flex; /* Flexbox para alinhar os itens */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: space-around; /* Espaçamento entre os elementos */
+    padding: 10px 20px; /* Preenchimento interno */
+    font-family: "Mulish", sans-serif; /* Tipo de fonte */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para efeito 3D */
+  }
+  

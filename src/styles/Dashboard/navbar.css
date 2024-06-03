@@ -1,0 +1,16 @@
+.navbar {
+  display: block;
+  top: 0;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 3rem 0 0 ;
+}
+
+.navbar-profile {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}

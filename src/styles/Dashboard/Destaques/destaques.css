@@ -1,0 +1,17 @@
+.destaquesContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: 1200px;
+    background-color: #FFF;
+    text-align: center;
+    align-items: center;
+}
+
+.destaquesConjunto{
+    width: 240px;
+    max-height: 200px;
+    background-color: #FFF;
+    padding: 10px;
+}
