@@ -1,7 +1,6 @@
 .custom-sidebar {
   background-color: #273733;
-  width: 15%; /* Largura da sidebar */
-  height: 100vh; /* Altura total da janela de visualização */
+  width: auto; /* Largura da sidebar */
   display: flex; /* Exibe os itens em linha */
   flex-direction: column;
   color: white; /* Cor do texto */
@@ -17,8 +16,9 @@
 .p-menuitem-link {
   color: #fff;
   font-size: 18px; 
-  margin-left: 50px;
   margin-top: 10px;
+  margin-right: auto;
+  padding: 10px 60px;
 }
 
 .backgroundMenuSidebar {

@@ -6,7 +6,11 @@
 .navbar-container {
   display: flex;
   justify-content: space-between;
-  margin: 0 3rem 0 0 ;
+}
+
+.navbar-container h1{
+  font-size: 24px;
+  font-weight: 700;
 }
 
 .navbar-profile {

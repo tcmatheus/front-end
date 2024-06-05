@@ -11,6 +11,8 @@ body {
   margin: 0;
   box-sizing: border-box;
 
+  height: 100%;
+
   font-family: "Lexend", sans-serif;
 }
 
@@ -30,7 +32,9 @@ body {
   width: 100%;
 }
 
-.destaquesTitle{
+.destaquesTitle {
   font-size: 24px;
 }
+
+
 
