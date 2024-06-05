@@ -1,4 +1,4 @@
-import DestaqueProduto from "../Destaques/DestaqueProduto";
+import  DestaqueProduto from "../Destaques/DestaqueProduto";
 
 export default function DestaquesLista() {
 
@@ -17,19 +17,7 @@ const produtos = [
     { imagem: "https://www.picsum.photos/1000", precoCusto: 12, precoVenda: 22 },
     { imagem: "https://www.picsum.photos/1000", precoCusto: 12, precoVenda: 22 },
     { imagem: "https://www.picsum.photos/1000", precoCusto: 12, precoVenda: 22 },
-    { imagem: "https://www.picsum.photos/1000", precoCusto: 12, precoVenda: 22 },
-    { imagem: "https://www.picsum.photos/1000", precoCusto: 12, precoVenda: 22 },
-    { imagem: "https://www.picsum.photos/1000", precoCusto: 12, precoVenda: 22 },
-    { imagem: "https://www.picsum.photos/1000", precoCusto: 12, precoVenda: 22 },
-    { imagem: "https://www.picsum.photos/1000", precoCusto: 12, precoVenda: 22 },
-    { imagem: "https://www.picsum.photos/1000", precoCusto: 12, precoVenda: 22 },
-    { imagem: "https://www.picsum.photos/1000", precoCusto: 12, precoVenda: 22 },
-    { imagem: "https://www.picsum.photos/1000", precoCusto: 12, precoVenda: 22 },
-    { imagem: "https://www.picsum.photos/1000", precoCusto: 12, precoVenda: 22 },
-    { imagem: "https://www.picsum.photos/1000", precoCusto: 12, precoVenda: 22 },
-    { imagem: "https://www.picsum.photos/1000", precoCusto: 12, precoVenda: 22 },
-    { imagem: "https://www.picsum.photos/1000", precoCusto: 12, precoVenda: 22 },
-    // Add more products here
+    { imagem: "https://www.picsum.photos/1000", precoCusto: 10002, precoVenda: 11122 },
 ];
 
   return (
