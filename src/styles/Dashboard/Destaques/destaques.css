@@ -6,6 +6,7 @@
   background-color: #fff;
   text-align: center;
   align-items: center;
+
 }
 
 .destaquesConjunto {
@@ -13,6 +14,7 @@
   width: auto;
   text-align: center;
   margin-top: 20px;
+  padding: 10px;
 }
 
 .scrollContainer {
@@ -25,17 +27,29 @@
   max-height: 400px;
   overflow-y: auto;
   padding: 10px;
-  gap: 30px;
+  gap: 40px;
 }
 
 .destaqueProduto {
-  width: 250px;
-  height: 300px;
+  width: 160px;
+  height: 170px;
   align-content: center;
 }
 
 .destaqueProduto:hover {
   cursor: pointer;
-  background-color: #39924625;
+  background-color: #5cdd6f18;
   transition: all 0.2s;
+}
+
+.destaqueProduto__custo{
+  font-size: 16px;
+  font-weight: 700;
+  color: #3745C1;
+}
+
+.destaqueProduto__venda{
+  font-size: 18px;
+  font-weight: 700;
+  color: #54B00C;
 }

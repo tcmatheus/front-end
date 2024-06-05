@@ -41,6 +41,10 @@
 }
 
 .card-container-forth {
+
+  display: flex;
+  flex-direction: column;
+
   width: 570px;
   height: 190px;
   border-radius: 20px;
@@ -87,4 +91,32 @@
 .cardContentValor {
   font-weight: bold;
   font-size: 26px;
+}
+.priorityCard__container{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+
+  & h3{
+    font-size: 14px;
+    font-weight: semibold;
+    color: #252733;
+
+  }
+}
+
+.priorityCard__subtitle-container{
+  display: flex;
+  justify-content: space-between;
+  width: 420px;
+}
+
+.priorityCard{
+  display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.priorityCard__tags{
+
 }

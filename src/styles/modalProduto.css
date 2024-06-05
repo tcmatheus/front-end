@@ -1,0 +1,20 @@
+.imagemProduto {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+}
+
+.botoes{
+    display: flex;
+    justify-content: space-between;
+}
+
+.infoProduto {
+  display: flex;
+  gap: 15rem;
+
+  font-weight: 700;
+  color: #000;
+  line-height: 1rem;
+  font-size: 18px;
+}
