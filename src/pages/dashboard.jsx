@@ -1,17 +1,16 @@
 import SidebarComponent from "../components/Dashboard/SidebarComponent";
 import Card from "../components/Dashboard/card";
 import Navbar from "../components/Dashboard/navbar";
+import DestaquesLista from "../components/Dashboard/Destaques/DestaquesLista";
 
 import "../styles/Dashboard/dashboardPage.css";
 import "../styles/Dashboard/card.css";
-import { Image } from "primereact/image";
-import Destaques from "../components/Dashboard/Destaques/Destaques";
 
 export default function DashboardPage() {
   return (
     <div className="dashboardContainer">
       <div className="dashboardlayout">
-        <SidebarComponent />
+        <SidebarComponent/>
         <div className="dashboardContent">
           <Navbar />
           <div className="cardGroupContainer">
@@ -53,9 +52,15 @@ export default function DashboardPage() {
               </div>
             </div>
           </div>
-          <Image width="100%" height="200" src="https://www.picsum.photos/2000" />
+          <div className="container_banner">
+            <img
+              class="banner"
+              src="https://www.picsum.photos/2000/400"
+            />
+          </div>
+
           <h1 className="destaquesTitle">Produtos em destaque</h1>
-          <Destaques />
+          <DestaquesLista />
         </div>
       </div>
     </div>
