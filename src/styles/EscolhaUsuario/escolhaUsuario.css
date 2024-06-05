@@ -1,0 +1,25 @@
+.buttons{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 50px;
+    border-radius: 10px;
+
+    background-color: rgb(87, 87, 87);
+    gap: 20px;
+}
+
+.buttons Button{
+    width: 300px;
+    height: 50px;
+    font-size: 24px;
+}
+
+.backgroundPage::before{
+    background-color: rgba(43, 43, 43, 0.856);
+}
+
+.backgroundEscolhaUser{
+    background-image: url("../../../public/assets/images/backgroundEscolhaUser.webp");
+}
+

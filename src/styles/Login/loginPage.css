@@ -1,12 +1,18 @@
 .backgroundPage {
-  background-image: url("../../../public/assets/images/backgroundFornecedor.png");
-  /* background-image: url("https://www.picsum.photos/2500"); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
   height: 100vh;
   justify-content: center;
+}
+
+.backgroundVend{
+  background-image: url("../../../public/assets/images/backgroundVendedor.png");
+}
+
+.backgroundForn{
+  background-image: url("../../../public/assets/images/backgroundFornecedor.png");
 }
 
 .backgroundPage::before {

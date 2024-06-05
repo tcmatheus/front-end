@@ -1,20 +1,42 @@
 .custom-sidebar {
   background-color: #273733;
-  width: 15%; /* Largura da sidebar */
-  height: 100vh; /* Altura total da janela de visualização */
-  position: fixed; /* Fixa a sidebar na posição */
-  left: 0; /* Alinha à esquerda da janela */
-  top: 0; /* Alinha ao topo da janela */
+  width: auto; /* Largura da sidebar */
+  display: flex; /* Exibe os itens em linha */
+  flex-direction: column;
   color: white; /* Cor do texto */
   z-index: 1000; /* Garante que a sidebar fique acima de outros conteúdos */
-  box-shadow: 4px 0 5px -2px rgba(0, 0, 0, 0.2); /* Sombra para destacar a sidebar */
+  box-shadow: 4px 0 5px -2px rgba(0, 0, 0, 0.2); /* Sombra para destacar a sidebar */ 
 }
 
 .container-loginFields-logo {
-    margin: 20px;
+    text-align: center;
+    margin-top: 30px;
 }
 
 .p-menuitem-link {
-  color: #fff; /* Cor do link */
-  font-size: 16px; /* Tamanho do texto dos links */
+  color: #fff;
+  font-size: 18px; 
+  margin-top: 10px;
+  margin-right: auto;
+  padding: 10px 60px;
+}
+
+.backgroundMenuSidebar {
+  background-color: #273733;
+  width: 100%;
+  border: none;
+}
+
+.backgroundMenuSidebar .p-menuitem-icon, .p-menuitem-text{
+  color: #fff; 
+  padding: 8px;
+}
+
+.backgroundMenuSidebar .p-menuitem-content:hover{
+  background-color: #31403d;
+  animation: all 0.3s;
+}
+
+.p-menuitem-text{
+  font-family: "Mulish", sans-serif;
 }
