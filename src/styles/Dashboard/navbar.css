@@ -1,6 +1,7 @@
 .navbar {
   display: block;
   top: 0;
+  margin-left: 8rem;
 }
 
 .navbar-container {

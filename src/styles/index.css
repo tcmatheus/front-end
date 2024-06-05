@@ -12,8 +12,12 @@ body {
   box-sizing: border-box;
 
   height: 100%;
-
   font-family: "Lexend", sans-serif;
+}
+
+a{
+  text-decoration: none;
+
 }
 
 .dashboardContainer {
@@ -22,19 +26,15 @@ body {
 }
 
 .dashboardlayout {
-  display: flex;
-  flex-grow: 1;
+  width: 100%;
 }
 
 .dashboardContent {
-  gap: 20px;
-  padding: 0 20px;
-  width: 100%;
+  width: auto;
+  margin-left: 8rem;
+  margin-right: 2rem;
 }
 
 .destaquesTitle {
   font-size: 24px;
 }
-
-
-
