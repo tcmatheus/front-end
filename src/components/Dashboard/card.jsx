@@ -1,6 +1,7 @@
 import "../../styles/Dashboard/card.css";
+import PriorityCard from "./priorityCard";
 
-export default function Card({ texto, tipo, valor, paragrafo, image }) {
+export default function Card({ texto, tipo, valor, paragrafo, image, tagUm, tagDois }) {
   return (
     <div
       className={
@@ -18,7 +19,12 @@ export default function Card({ texto, tipo, valor, paragrafo, image }) {
         <h2 className="cardContentValor">{valor}</h2>
         <h3 className="">{paragrafo}</h3>
       </div>
-      <img src={image} alt="" />
+      <div className="priorityCard__container">
+        {tagUm === "Baixa" || tagDois === "Baixa" && <PriorityCard tags={["Baixa", "Baixa"]} />}
+        {tagUm === "Media" || tagDois === "Media" && <PriorityCard tags={["Media", "Media"]} />}
+        {tagUm === "Alta" || tagDois === "Alta" && <PriorityCard tags={["Alta", "Alta"]} />}
+      </div>
+      <img src={image} alt="" width={60} />
     </div>
   );
 }
