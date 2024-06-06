@@ -1,7 +1,12 @@
+import DestaquesLista from "../components/Dashboard/Destaques/DestaquesLista";
+
+import '../styles/produtosPage.css';
+
 export default function ProdutosPage() {
     return(
-        <div>
-            <h1>Produtos</h1>
+        <div className="produtosContainer">
+            <h1>Produtos em Destaque</h1>
+            <DestaquesLista/>
         </div>
     )
 }
