@@ -3,6 +3,8 @@ import { Button } from "primereact/button";
 import { Menu } from "primereact/menu";
 import { Image } from "primereact/image";
 
+import { logout } from "../../services/Login/loginService";
+
 import "../../styles/Dashboard/sidebar.css";
 import { Link } from "react-router-dom";
 
@@ -23,7 +25,9 @@ export default function SidebarComponent() {
     { label: "Sair", icon: "pi pi-fw pi-sign-out", url: "/" },
   ];
 
+
   return (
+    
     <aside className="custom-sidebar">
       <Image
         className="container-loginFields-logo"
@@ -32,8 +36,9 @@ export default function SidebarComponent() {
         width="100"
       />
       {items.map((el) => {
+
         return (
-          <Link className="backgroundMenuSidebar" to={el.url}>
+          <Link onClick={() => logout(el.label)} className="backgroundMenuSidebar" to={el.url}>
             <li className="backgroundMenuSidebar__items">
               <i className={el.icon} alt="" width={50} />
               <p>{el.label}</p>
