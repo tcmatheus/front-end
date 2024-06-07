@@ -1,0 +1,28 @@
+.status__container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.status__container--title > h3{
+    font-size: 19px;
+    color: #208D3F;
+    font-weight: 700;
+
+    margin: 0;
+
+    font-family: 'mulish', 'sans-serif';
+}
+.status__container--title > p{
+    font-size: 16px;
+    color: #9FA2B4;
+    font-weight: 400;
+
+    margin: 10px 0;
+
+    font-family: 'mulish', 'sans-serif';
+}
+
+.statusCard__container{
+    background-color: #D9D9D9;
+    border-radius: 10px;
+}

@@ -1,18 +1,21 @@
 import { Button } from "primereact/button";
-import { Dialog } from "primereact/dialog";
-import { useState } from "react";
-
-import "../styles/modalProduto.css";
+import { Checkbox } from "primereact/checkbox";
 import { FloatLabel } from "primereact/floatlabel";
 import { InputText } from "primereact/inputtext";
+import { InputTextarea } from "primereact/inputtextarea";
 import { Dropdown } from "primereact/dropdown";
-import { Checkbox } from "primereact/checkbox";
+import { useState } from "react";
 
-export default function ModalProduto({ isVisible, produto }) {
-  const [isOpen, setIsOpen] = useState(isVisible);
-  const [categoria, setCategorias] = useState(null);
-  const [ingredients, setIngredients] = useState([]);
+import "../../styles/modalProduto.css";
 
+export default function CadastrarProduto({produto}) {
+
+    const userType = localStorage.getItem("userType");
+
+    const [categoria, setCategorias] = useState(null);
+    const [ingredients, setIngredients] = useState([]);
+    const [description, setDescription] = useState();
+    
   const categorias = [
     { name: "Esporte" },
     { name: "Games" },
@@ -32,23 +35,18 @@ export default function ModalProduto({ isVisible, produto }) {
   };
 
   return (
-    <Dialog
-      blockScroll={true}
-      draggable={false}
-      visible={isOpen}
-      style={{ width: "80vw", height: "100vh" }}
-      onHide={() => {
-        if (!isOpen) return;
-        setIsOpen(false);
-      }}
-    >
+    <>
       <div className="imagemProduto">
         <div className="imagemProduto__container">
-          <img src={produto.imagem} alt="" width={300} height={340} />
+          <img src={produto?.imagem} alt="" width={300} height={340} />
           <div className="botoes">
             <Button label="Adicionar" severity="success" />
-            <Button label="Baixar" severity="info" />
-            <Button label="Remover" severity="danger" />
+            {userType === "Vendedor" && (
+              <>
+                <Button label="Baixar" severity="info" />
+                <Button label="Remover" severity="danger" />
+              </>
+            )}
           </div>
           <div className="imagemProduto__containerBtn">
             <Button label="CADASTRAR PRODUTO" severity="primary" />
@@ -61,14 +59,14 @@ export default function ModalProduto({ isVisible, produto }) {
               <div>
                 <p>SKU:D00-00000</p>
                 <p>Ean: 0000000000000</p>
-                <p>Preço de custo: R$ {produto.precoCusto}</p>
-                <p>Preço de venda: R$ {produto.precoVenda}</p>
+                <p>Preço de custo: R$ {produto?.precoCusto}</p>
+                <p>Preço de venda: R$ {produto?.precoVenda}</p>
               </div>
             </div>
             <div className="formProduto__infoDois">
               <p>Composição preço de Venda</p>
               <div>
-                <p>Custo: R$ {produto.precoCusto}</p>
+                <p>Custo: R$ {produto?.precoCusto}</p>
                 <p>Frete: R$ 0</p>
                 <p>Comissão: R$ 7.36 (18%)</p>
                 <p>Lucro: R$ 2.90 (10%)</p>
@@ -103,7 +101,7 @@ export default function ModalProduto({ isVisible, produto }) {
                   <InputText id="EAN" />
                   <label htmlFor="EAN">GERAR EAN</label>
                 </FloatLabel>
-                <Button label="GERAR EAN" className="btnEAN"  severity="info" />
+                <Button label="GERAR EAN" className="btnEAN" severity="info" />
               </div>
             </div>
 
@@ -148,22 +146,16 @@ export default function ModalProduto({ isVisible, produto }) {
           </form>
         </div>
       </div>
-      <div className="m-0">
-        <h3>Descrição</h3>
-        <p>
-          Quase duas décadas de uma carreira que supera todas as expectativas,
-          LeBron James se recusou a se contentar com nada menos do que a
-          grandeza, mesmo quando foi ele quem estabeleceu o padrão para as
-          próximas gerações. Agora, seu mais recente tênis exclusivo é mais
-          leve, próximo ao chão e turbinado. É diferente de qualquer design que
-          LeBron já vestiu antes - confortável e com suporte, mas com cano
-          baixo, rápido como um relâmpago e criado para ficar à frente do estilo
-          de jogo frenético de hoje. Suave e ágil A unidade Zoom Air grande no
-          antepé é curvada para oferecer flexão multidirecional. Ela fornece
-          retorno de energia para curvas rápidas e responsivas e oferece uma
-          sensação de quadra flexível que se move naturalmente com o pé.
-        </p>
-      </div>
-    </Dialog>
+      <FloatLabel className="descriptionInput">
+        <InputTextarea
+          id="description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          rows={10}
+          cols={120}
+        />
+        <label htmlFor="description">Descrição do Produto</label>
+      </FloatLabel>
+    </>
   );
 }
