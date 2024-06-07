@@ -1,8 +1,8 @@
 import Ranking from "../components/Dashboard/Ranking/ranking";
-import '../styles/pedidosPage.css'
+import StatusPedidosSection from "../components/Dashboard/StatusPedidos/statusPedidosSection";
+import "../styles/pedidosPage.css";
 
 export default function PedidosPage() {
-
   const userType = localStorage.getItem("userType");
 
   return (
@@ -10,6 +10,7 @@ export default function PedidosPage() {
       <h1>Pedidos</h1>
       {userType === "Fornecedor" && (
         <>
+          <StatusPedidosSection />
           <Ranking />
         </>
       )}
