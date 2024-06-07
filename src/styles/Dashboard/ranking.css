@@ -1,0 +1,59 @@
+.ranking__container{
+    background-color: #ffffff;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 20px;
+
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ranking__container--title{
+
+   text-align: center;
+}
+
+.productRank__container{
+    width: 100%;
+}
+
+.productRank__container--content{
+    display: flex;
+    gap: 50px;
+}
+
+.productRank__container--content-image{
+    display: flex;
+}
+
+.rankingImg{
+    height: 20px;
+}
+
+
+.productRank__container--info{
+    width: 100%;
+    align-content: center;
+}
+
+.productRank__container--info h2{
+    font-size: 18px;
+    font-weight: 700;
+
+    margin: 0;
+}
+
+.productRank__container--info p{
+    font-size: 16px;
+    font-weight: 300;
+    color: #9FA2B4;
+
+    margin: 0;
+}
+
+.productRank__container--info-pop{
+    display: flex;
+    gap: 5px;
+}

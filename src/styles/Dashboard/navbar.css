@@ -1,0 +1,21 @@
+.navbar {
+  display: block;
+  top: 0;
+  margin-left: 8rem;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar-container h1{
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.navbar-profile {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}

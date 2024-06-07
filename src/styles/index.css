@@ -1,7 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@30;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
 
 @import "primereact/resources/themes/saga-green/theme.css";
 @import "primereact/resources/primereact.min.css";
+@import "primeicons/primeicons.css";
 
 html,
 body {
@@ -9,6 +11,30 @@ body {
   margin: 0;
   box-sizing: border-box;
 
-
+  height: 100%;
   font-family: "Lexend", sans-serif;
+}
+
+a{
+  text-decoration: none;
+
+}
+
+.dashboardContainer {
+  display: flex;
+  background-color: #f7f8fc;
+}
+
+.dashboardlayout {
+  width: 100%;
+}
+
+.dashboardContent {
+  width: auto;
+  margin-left: 8rem;
+  margin-right: 2rem;
+}
+
+.destaquesTitle {
+  font-size: 24px;
 }

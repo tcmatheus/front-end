@@ -6,13 +6,11 @@ import { Password } from 'primereact/password';
 import { useState } from 'react';
 
 import { Link } from "react-router-dom";
-
-
 import '../../styles/Login/loginForm.css';
 
 export default function FormLogin() {
 
-  const [email, setEmail] = useState('sadasda@dsad.com');
+  const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
   const handleClick = () => {

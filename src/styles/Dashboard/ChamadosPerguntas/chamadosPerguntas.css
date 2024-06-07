@@ -1,0 +1,38 @@
+.chamadosPerguntasSection__container{
+    background-color: #FFF;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.chamadosPerguntas__container--title{
+    font-size: 18px;
+    color: #252733;
+    font-weight: 700;
+}
+
+.chamadosPerguntas__container{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.chamadosPerguntas__container--user > p, .chamadosPerguntas__container--user > h3{
+    margin: 5px 0;
+    padding: 0;
+
+    text-align: start;
+
+    font-size: 16px;
+    font-weight: 400;
+    color: #9FA2B4;
+}
+
+.chamadosPerguntas__container--dataStatus{
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 2rem;
+
+}
