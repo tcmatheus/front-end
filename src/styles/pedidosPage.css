@@ -1,0 +1,7 @@
+.pedidos__container{
+    margin-left: 8rem;
+}
+
+.pedidos__container > h1{
+    font-size: 24px;
+}
