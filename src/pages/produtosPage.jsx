@@ -1,28 +1,35 @@
-import { Button } from "primereact/button";
 import DestaquesLista from "../components/Dashboard/Destaques/DestaquesLista";
 
 import "../styles/produtosPage.css";
-import ModalProduto from "../components/ModalProduto";
 import { useState } from "react";
+import CadastrarProduto from "../components/CadastrarProduto/cadastrarProduto";
 
 export default function ProdutosPage() {
   const userType = localStorage.getItem("userType");
 
   const [isVisible, setIsVisible] = useState(false);
 
-return (
+  return (
     <div className="produtosContainer">
-        <h1>Produtos em Destaque</h1>
-        {userType === "Vendedor" && <DestaquesLista />}
-        {userType === "Fornecedor" && (
-            <>
-                <Button
-                    onClick={() => setIsVisible(!isVisible)}
-                    label="Cadastrar Produto"
-                />
-                {isVisible === true && <ModalProduto isVisible={isVisible} />}
-            </>
-        )}
+      {userType === "Vendedor" && (
+        <>
+          <h1>Produtos em Destaque</h1> 
+          <DestaquesLista />
+        </>
+      )}
+      {userType === "Fornecedor" && (
+        <>
+          {/* <Button
+            onClick={() => setIsVisible(!isVisible)}
+            label="Cadastrar Produto"
+          /> */}
+          <CadastrarProduto/>
+          <div>
+            <h1>Produtos Cadastrados</h1>
+            <DestaquesLista />
+          </div>
+        </>
+      )}
     </div>
-);
+  );
 }
