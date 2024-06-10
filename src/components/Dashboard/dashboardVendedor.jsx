@@ -15,8 +15,9 @@ export default function DashboardVendedor(){
           <div className="cardGroupContainer">
             <Card
               texto={"Total de Vendas Hoje"}
-              paragrafo={"do dia 28 Máio 2024, 09:41 PM"}
+              paragrafo={"do dia 28 Maio 2024, 09:41 PM"}
               tipo={"third"}
+              hasChart={true}
             />
             <div>
               <div className="cardGroup">
