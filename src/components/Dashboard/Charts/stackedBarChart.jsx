@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 import '../../../styles/Dashboard/cardComGrafico.css';
 
+
 export default function StackedBarChart(){
     
     const [chartData, setChartData] = useState({});
@@ -17,12 +18,12 @@ export default function StackedBarChart(){
         const data = {
             labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
             datasets: [
-            {
-            type: 'bar',
-            label: 'Total de Vendas',
-            backgroundColor: '#0A703F',
-            data: [50, 25, 12, 48, 90, 76, 42, 50, 50, 50, 50, 25]
-            },
+        {
+    type: 'bar',
+    label: 'Valor das Vendas R$',
+    backgroundColor: '#0A703F',
+    data: [50.00, 25.00, 12.00, 48.00, 90.00, 76.00, 42.00, 50.00, 50.00, 50.00, 50.00, 25.00]
+        },
             ]
         };
         const options = {
