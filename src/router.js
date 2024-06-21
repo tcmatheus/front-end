@@ -1,16 +1,18 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import AuthWrapper from "./components/Authentification/AuthWrapper";
+import AuthWrapper from "./components/Authentification/Components/AuthWrapper";
 import LoginPage from "./pages/loginPage";
 import EscolhaUsuario from "./pages/escolhaUsuario";
 import PedidosPage from "./pages/pedidosPage";
 import DashboardLayout from "./layout/dashboardLayout";
 import DashboardPage from "./pages/dashboard";
 import ProdutosPage from "./pages/produtosPage";
+import AuthTokenPage from "./pages/authTokenPage";
 
 const AppRouter = () => {
   return (
     <Router>
       <Routes>
+        <Route path="/oauth/callback" element={<AuthTokenPage />} />
         <Route path="/" element={<EscolhaUsuario />} />
         <Route
           path="/loginFornecedor"
