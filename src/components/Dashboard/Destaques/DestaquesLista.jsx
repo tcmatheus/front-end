@@ -1,31 +1,30 @@
-import  DestaqueProduto from "../Destaques/DestaqueProduto";
+import React, { useEffect, useState } from "react";
+import DestaqueProduto from "./DestaqueProduto";
+import getAllProducts from "../../CadastrarProduto/Services/produtosService";
 
 export default function DestaquesLista() {
 
-const produtos = [
-    { imagem: "https://www.picsum.photos/1000", precoCusto: 10, precoVenda: 20 },
-    { imagem: "https://www.picsum.photos/1000", precoCusto: 15, precoVenda: 25 },
-    { imagem: "https://www.picsum.photos/1000", precoCusto: 15, precoVenda: 25 },
-    { imagem: "https://www.picsum.photos/1000", precoCusto: 15, precoVenda: 25 },
-    { imagem: "https://www.picsum.photos/1000", precoCusto: 15, precoVenda: 25 },
-    { imagem: "https://www.picsum.photos/1000", precoCusto: 15, precoVenda: 25 },
-    { imagem: "https://www.picsum.photos/1000", precoCusto: 15, precoVenda: 25 },
-    { imagem: "https://www.picsum.photos/1000", precoCusto: 15, precoVenda: 25 },
-    { imagem: "https://www.picsum.photos/1000", precoCusto: 15, precoVenda: 25 },
-    { imagem: "https://www.picsum.photos/1000", precoCusto: 15, precoVenda: 25 },
-    { imagem: "https://www.picsum.photos/1000", precoCusto: 12, precoVenda: 22 },
-    { imagem: "https://www.picsum.photos/1000", precoCusto: 12, precoVenda: 22 },
-    { imagem: "https://www.picsum.photos/1000", precoCusto: 12, precoVenda: 22 },
-    { imagem: "https://www.picsum.photos/1000", precoCusto: 12, precoVenda: 22 },
-    { imagem: "https://www.picsum.photos/1000", precoCusto: 10002, precoVenda: 11122 },
-];
+  const [produtos, setProdutos] = useState([]);
+
+  const getProdutos = async () => {
+    try {
+      const response = await getAllProducts();
+      setProdutos(response.data);
+    } catch (error) {
+      console.error("Erro ao obter produtos:", error);
+    }
+  };
+
+  useEffect(() => {
+    getProdutos();
+  }, [produtos]);
 
   return (
     <div className="destaquesConjunto">
       <div className="scrollContainer">
-        {produtos.map((produto) => {
-              return <DestaqueProduto produto={produto}/>
-        })}
+        {produtos.map((produto) => (
+          <DestaqueProduto key={produto.id} produto={produto} />
+        ))}
       </div>
     </div>
   );
