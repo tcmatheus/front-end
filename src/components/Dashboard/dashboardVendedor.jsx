@@ -55,7 +55,7 @@ export default function DashboardVendedor(){
             </div>
           </div>
           <div className="container_banner">
-            <img class="banner" src="https://www.picsum.photos/2000/400" />
+            <img className="banner" src="https://www.picsum.photos/2000/400" />
           </div>
       
           <div className="destaque__container">
