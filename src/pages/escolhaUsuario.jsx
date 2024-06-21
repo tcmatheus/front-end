@@ -1,5 +1,5 @@
 import "../styles/EscolhaUsuario/escolhaUsuario.css";
-import { login } from "../services/Login/loginService";
+import { login } from "../components/Login/Services/loginService";
 
 import { Button } from "primereact/button";
 import { Link } from "react-router-dom";

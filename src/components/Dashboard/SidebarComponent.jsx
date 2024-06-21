@@ -3,7 +3,7 @@ import { Button } from "primereact/button";
 import { Menu } from "primereact/menu";
 import { Image } from "primereact/image";
 
-import { logout } from "../../services/Login/loginService";
+import { logout } from "../Login/Services/loginService";
 
 import "../../styles/Dashboard/sidebar.css";
 import { Link } from "react-router-dom";
