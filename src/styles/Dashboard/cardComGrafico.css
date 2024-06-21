@@ -13,3 +13,20 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para efeito 3D */
   }
   
+
+
+ .totVendas__container{
+  font-weight: 700;
+  font-family: 'DM Sans', sans-serif;
+ }
+ .totVendas__container--text{
+  color: #A3AED0;
+  font-weight: 400;
+ }
+
+ .totVendas__container--valor{
+  font-size: 34px;
+  margin: 1rem auto;
+ }
+
+ 
