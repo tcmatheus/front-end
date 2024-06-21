@@ -120,3 +120,22 @@ align-items: center;
 .priorityCard__tags{
 
 }
+
+.chartCard__container{
+  display: flex;
+  gap: 2rem;
+}
+
+.chartCard__container--infoCards{
+  display: flex;
+  flex-direction: column;
+}
+
+.chartCard__container--infoCards-card{
+  text-align: center;
+}
+
+.cardChart__container{
+  display: flex;
+    height: 100%;
+  }
