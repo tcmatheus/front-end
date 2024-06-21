@@ -38,7 +38,7 @@ export default function CadastrarProduto({produto}) {
     <>
       <div className="imagemProduto">
         <div className="imagemProduto__container">
-          <img src={produto?.imagem} alt="" width={300} height={340} />
+          <img src={produto?.imagemURL} alt="" width={300} height={340} />
           <div className="botoes">
             <Button label="Adicionar" severity="success" />
             {userType === "Vendedor" && (
@@ -55,11 +55,11 @@ export default function CadastrarProduto({produto}) {
         <div>
           <div action="" className="infoProduto">
             <div className="formProduto__infoUm">
-              <p>Tênis Nike Winflo 10 Masculino</p>
+              <p>{produto?.nome}</p>
               <div>
-                <p>SKU:D00-00000</p>
+                <p>{produto?.SKU}</p>
                 <p>Ean: 0000000000000</p>
-                <p>Preço de custo: R$ {produto?.precoCusto}</p>
+                <p>Preço: R$ {produto?.preco}</p>
                 <p>Preço de venda: R$ {produto?.precoVenda}</p>
               </div>
             </div>
