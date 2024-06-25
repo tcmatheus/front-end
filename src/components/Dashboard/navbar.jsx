@@ -1,20 +1,19 @@
-import '../../styles/Dashboard/navbar.css'
+import "../../styles/Dashboard/navbar.css";
 
-import {Avatar} from 'primereact/avatar'
+import { Avatar } from "primereact/avatar";
 export default function Navbar() {
+  const userType = localStorage.getItem("userType");
 
-    const userType = localStorage.getItem('userType');
-
-return (
+  return (
     <div className="navbar">
-        <div className='navbar-container'>
-            <h1>Visão Geral - {userType}</h1>
-            <div className='navbar-profile'>
-                <i className="pi pi-bell"></i>
-                <p>Lucas Almada</p>
-                <Avatar icon="pi pi-user" shape="circle" size="large"/>
-            </div>
+      <div className="navbar-container">
+        <h1>Dashboard - {userType}</h1>
+        <div className="navbar-profile">
+          <i className="pi pi-bell"></i>
+          <p>Lucas Almada</p>
+          <Avatar icon="pi pi-user" shape="circle" size="large" />
         </div>
+      </div>
     </div>
-);
+  );
 }
