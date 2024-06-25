@@ -30,13 +30,13 @@ export default function SidebarComponent({ isSidebarOpen, toggleSidebar }) {
         className={`toggle-sidebar-button ${isSidebarOpen ? "open" : "closed"}`}
       />
       <aside className={`custom-sidebar ${isSidebarOpen ? "open" : "closed"}`}>
-        {/* <Image
+        <img
           className={`container-loginFields-logo ${
             isSidebarOpen ? "open" : "closed"
           }`}
           src="../assets/logos/logoSouDrop.png"
           alt="SouDrop Logo"
-        /> */}
+        />
         {items.map((el) => (
           <Link
             onClick={() => logout(el.label)}
