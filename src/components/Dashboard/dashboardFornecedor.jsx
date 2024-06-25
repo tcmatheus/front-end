@@ -4,6 +4,7 @@ import "../../styles/Dashboard/dashboardPage.css";
 import "../../styles/Dashboard/card.css";
 import Ranking from "./Ranking/ranking.jsx";
 import ChamadosPerguntasSection from "./ChamadosPerguntas/chamadosPerguntasSection.jsx";
+import CardComponent from "./CardComponent/card.component.jsx";
 
 export default function DashboardFornecedor() {
   return (
@@ -50,10 +51,10 @@ export default function DashboardFornecedor() {
             </div>
           </div>
         </div>
-          <div className="inferior__container">
-            <Ranking/>
-            <ChamadosPerguntasSection/>
-          </div>
+        <div className="inferior__container">
+          <Ranking />
+          <ChamadosPerguntasSection />
+        </div>
       </div>
     </div>
   );

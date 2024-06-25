@@ -5,12 +5,10 @@ import Navbar from "../components/Dashboard/navbar";
 export default function DashboardLayout() {
   return (
     <div className="dashboardContainer">
-      <div className="dashboardlayout">
-        <SidebarComponent />
-        <div className="dashboardContent">
-          <Navbar />
-          <Outlet />
-        </div>
+      <SidebarComponent />
+      <div className="dashboardContent">
+        <Navbar />
+        <Outlet />
       </div>
     </div>
   );
