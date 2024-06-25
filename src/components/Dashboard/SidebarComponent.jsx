@@ -11,7 +11,7 @@ export default function SidebarComponent({ isSidebarOpen, toggleSidebar }) {
     { label: "Produtos", icon: "pi pi-fw pi-box", url: "produtos" },
     { label: "Pedidos", icon: "pi pi-fw pi-receipt", url: "pedidos" },
     {
-      label: "Minha Integração",
+      label: "Integração",
       icon: "pi pi-fw pi-slack",
       url: "minhaIntegracao",
     },
@@ -30,11 +30,13 @@ export default function SidebarComponent({ isSidebarOpen, toggleSidebar }) {
         className={`toggle-sidebar-button ${isSidebarOpen ? "open" : "closed"}`}
       />
       <aside className={`custom-sidebar ${isSidebarOpen ? "open" : "closed"}`}>
-        <Image
-          className="container-loginFields-logo"
+        {/* <Image
+          className={`container-loginFields-logo ${
+            isSidebarOpen ? "open" : "closed"
+          }`}
           src="../assets/logos/logoSouDrop.png"
           alt="SouDrop Logo"
-        />
+        /> */}
         {items.map((el) => (
           <Link
             onClick={() => logout(el.label)}

@@ -48,7 +48,7 @@
 }
 
 .custom-sidebar.closed .container-loginFields-logo {
-  width: 50px;
+  width: 70px;
 }
 
 .p-menuitem-link {
@@ -61,11 +61,12 @@
 
 .backgroundMenuSidebar {
   width: 100%;
-  padding-left: 25px;
+  padding: 8px 25px;
   border: none;
   font-family: "Mulish", sans-serif;
   color: #a4a6b3;
   transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 .backgroundMenuSidebar:hover {
@@ -86,7 +87,7 @@
 }
 
 .custom-sidebar.closed .backgroundMenuSidebar__items p {
-  display: none;
+  opacity: 0;
 }
 
 @media (max-width: 768px) {
