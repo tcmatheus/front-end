@@ -1,18 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "primereact/button";
 import { Image } from "primereact/image";
 import { Link } from "react-router-dom";
 import { logout } from "../Login/Services/loginService";
-
 import "../../styles/Dashboard/sidebar.css";
 
-export default function SidebarComponent() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
-
+export default function SidebarComponent({ isSidebarOpen, toggleSidebar }) {
   const items = [
     { label: "Dashboard", icon: "pi pi-fw pi-home", url: "/dashboard" },
     { label: "Produtos", icon: "pi pi-fw pi-box", url: "produtos" },
@@ -41,7 +34,6 @@ export default function SidebarComponent() {
           className="container-loginFields-logo"
           src="../assets/logos/logoSouDrop.png"
           alt="SouDrop Logo"
-          width="100"
         />
         {items.map((el) => (
           <Link

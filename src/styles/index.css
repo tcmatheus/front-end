@@ -23,5 +23,13 @@ body {
 .dashboardContent {
   flex: 1;
   padding: 16px;
+  transition: margin-left 0.3s ease;
+}
+
+.dashboardContent.open {
   margin-left: 15%;
+}
+
+.dashboardContent.closed {
+  margin-left: 85px;
 }
