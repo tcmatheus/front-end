@@ -13,13 +13,17 @@
   }
 }
 
-.destaque__container{
+.destaque__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.inferior__container{
+.inferior__container {
   display: flex;
   gap: 30px;
+}
+
+.dashboardlayout {
+  width: 100%;
 }

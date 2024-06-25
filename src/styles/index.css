@@ -17,12 +17,11 @@ body {
 .dashboardContainer {
   display: flex;
   flex-direction: row;
-  height: 100vh;
 }
 
 .dashboardContent {
   flex: 1;
-  padding: 16px;
+  margin: 15px;
   transition: margin-left 0.3s ease;
 }
 

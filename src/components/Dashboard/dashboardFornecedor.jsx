@@ -5,6 +5,7 @@ import "../../styles/Dashboard/card.css";
 import Ranking from "./Ranking/ranking.jsx";
 import ChamadosPerguntasSection from "./ChamadosPerguntas/chamadosPerguntasSection.jsx";
 import CardComponent from "./CardComponent/card.component.jsx";
+import "../../styles/Dashboard/dashboardPage.css";
 
 export default function DashboardFornecedor() {
   return (
