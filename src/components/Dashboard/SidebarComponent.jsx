@@ -1,12 +1,9 @@
 import React from "react";
-import { Button } from "primereact/button";
-import { Menu } from "primereact/menu";
 import { Image } from "primereact/image";
 
-import { logout } from "../Login/Services/loginService";
-
 import "../../styles/Dashboard/sidebar.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { logoutUser } from "../../services/Login/loginService";
 
 export default function SidebarComponent() {
   const items = [
@@ -22,12 +19,21 @@ export default function SidebarComponent() {
     { label: "Vendedores", icon: "pi pi-fw pi-users", url: "vendedores" },
     { label: "Configuracões", icon: "pi pi-fw pi-cog", url: "configuracoes" },
     { label: "Ranking", icon: "pi pi-fw pi-sort-up-fill", url: "rankings" },
-    { label: "Sair", icon: "pi pi-fw pi-sign-out", url: "/" },
   ];
 
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logoutUser()
+      .then(() => {
+        navigate("/");  // Redireciona para a tela de login após o logout
+      })
+      .catch(error => {
+        console.error("Erro ao sair:", error.message);
+      });
+  };
 
   return (
-    
     <aside className="custom-sidebar">
       <Image
         className="container-loginFields-logo"
@@ -35,17 +41,24 @@ export default function SidebarComponent() {
         alt="SouDrop Logo"
         width="100"
       />
-      {items.map((el) => {
-
-        return (
-          <Link onClick={() => logout(el.label)} className="backgroundMenuSidebar" to={el.url}>
-            <li className="backgroundMenuSidebar__items">
-              <i className={el.icon} alt="" width={50} />
-              <p>{el.label}</p>
-            </li>
-          </Link>
-        );
-      })}
+    
+      {items.map((el) => (
+        <Link
+          className="backgroundMenuSidebar"
+          to={el.url}
+        >
+          <li className="backgroundMenuSidebar__items">
+            <i className={el.icon} alt="" width={50} />
+            <p>{el.label}</p>
+          </li>
+        </Link>
+      ))}
+      <div className="backgroundMenuSidebar">
+        <li onClick={() => handleLogout()} className="backgroundMenuSidebar__items">
+          <i className="pi pi-fw pi-sign-out" alt="" width={50} />
+          <p>Sair</p>
+        </li>
+      </div>
     </aside>
   );
 }
