@@ -22,10 +22,10 @@ export default function RegisterUser() {
   const handleRegister = async () => { 
     try {
       const userCredential = await registerUser(email, password);
-      // await db.collection("users").doc(userCredential.user.uid).set({
-      //   userType: selectedUserType,
-      //   email: email
-      // })
+      await db.collection("users").doc(userCredential.user.uid).set({
+        userType: selectedUserType.name,
+        email: email
+      })
 
       loginUser(email, password)
         .then(() => {
@@ -36,7 +36,10 @@ export default function RegisterUser() {
           setError("Falha no login. Verifique seu e-mail e senha.");
         });
       setVisible(false);
-    } catch (error) {}
+    } catch (error) {
+      console.error("Erro ao salvar no Firestore:", error);
+      setError("Erro ao registrar. Por favor, verifique os detalhes e tente novamente.");
+    }
   };
 
   return (
