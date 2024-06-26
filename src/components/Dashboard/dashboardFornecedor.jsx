@@ -14,7 +14,15 @@ export default function DashboardFornecedor() {
         <div className="cardGroupContainer">
           {/* Total Vendas */}
           <div className="salesGroup">
-            <SalesData />
+            <SalesData
+              totalVendasHoje={682.5}
+              vendasHoje={1}
+              vendasOntem={2}
+              vendidos={449}
+              recebidos={426}
+              tempoResposta={"33m"}
+              ultimaAtualizacao={"3h 8m"}
+            />
           </div>
 
           <div className="rightComponents">

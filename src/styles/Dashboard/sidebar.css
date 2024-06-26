@@ -1,3 +1,33 @@
+.dashboardContainer {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+}
+
+.dashboardContent {
+  flex-grow: 1;
+  margin: 15px;
+  transition: margin-left 0.3s ease;
+}
+
+.dashboardContent.open {
+  margin-left: 15%;
+}
+
+.dashboardContent.closed {
+  margin-left: 85px;
+}
+
+@media (max-width: 768px) {
+  .dashboardContent.open {
+    margin-left: 60%;
+  }
+
+  .dashboardContent.closed {
+    margin-left: 60px;
+  }
+}
+
 .custom-sidebar {
   background-color: #273733;
   box-shadow: 4px 0 5px -2px rgba(0, 0, 0, 0.2);
@@ -8,7 +38,7 @@
   height: 100%;
   z-index: 1000;
   position: fixed;
-  transition: width 0.3s ease;
+  transition: width 0.3s ease, margin-left 0.3s ease;
   overflow: hidden;
 }
 
@@ -33,7 +63,7 @@
 }
 
 .toggle-sidebar-button.open {
-  left: calc(15% + -20px);
+  left: calc(15% - 20px);
 }
 
 .toggle-sidebar-button.closed {

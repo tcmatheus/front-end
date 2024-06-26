@@ -28,13 +28,14 @@ export default function SidebarComponent() {
 
   return (
     <>
-      <Button
+      {/* TODO: Mais pra frente, adicionar um botão para abrir e fechar o sidebar */}
+      {/* <Button
         icon={isSidebarOpen ? "pi pi-angle-left" : "pi pi-angle-right"}
         onClick={toggleSidebar}
         className={`toggle-sidebar-button ${sidebarClass} ${
           !isSidebarOpen && isHovered ? "hidden" : ""
         }`}
-      />
+      /> */}
       <aside
         className={`custom-sidebar ${sidebarClass}`}
         onMouseEnter={() => setIsHovered(true)}
