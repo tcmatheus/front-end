@@ -122,6 +122,7 @@
   align-items: center;
   gap: 12px;
   padding: 8px;
+  cursor: pointer;
 }
 
 .custom-sidebar.closed .backgroundMenuSidebar__items p {
