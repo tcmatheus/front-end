@@ -4,8 +4,13 @@ import { Link } from "react-router-dom";
 import { logout } from "../Login/Services/loginService";
 import "../../styles/Dashboard/sidebar.css";
 
-export default function SidebarComponent({ isSidebarOpen, toggleSidebar }) {
+export default function SidebarComponent() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
 
   const items = [
     { label: "Dashboard", icon: "pi pi-fw pi-home", url: "/dashboard" },
