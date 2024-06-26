@@ -26,7 +26,9 @@ export default function SidebarComponent({ isSidebarOpen, toggleSidebar }) {
       <Button
         icon={isSidebarOpen ? "pi pi-angle-left" : "pi pi-angle-right"}
         onClick={toggleSidebar}
-        className={`toggle-sidebar-button ${sidebarClass}`}
+        className={`toggle-sidebar-button ${sidebarClass} ${
+          !isSidebarOpen && isHovered ? "hidden" : ""
+        }`}
       />
       <aside
         className={`custom-sidebar ${sidebarClass}`}

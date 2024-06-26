@@ -1,6 +1,5 @@
 import "../../styles/Dashboard/card.css";
 import StackedBarChart from "./Charts/stackedBarChart";
-import PriorityCard from "./priorityCard";
 
 export default function Card({
   texto,
