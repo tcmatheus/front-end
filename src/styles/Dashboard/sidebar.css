@@ -20,11 +20,14 @@
   width: 85px;
 }
 
+.custom-sidebar:hover {
+  width: 15%;
+}
+
 .toggle-sidebar-button {
   border-radius: 20px;
   position: fixed;
   top: 10px;
-  left: 64px;
   z-index: 1100;
   transition: left 0.3s ease;
 }
@@ -35,6 +38,10 @@
 
 .toggle-sidebar-button.closed {
   left: 64px;
+}
+
+.toggle-sidebar-button.hover {
+  left: calc(15% + -20px);
 }
 
 .container-loginFields-logo {

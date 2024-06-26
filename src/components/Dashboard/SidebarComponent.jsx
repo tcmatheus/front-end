@@ -1,20 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "primereact/button";
-import { Image } from "primereact/image";
 import { Link } from "react-router-dom";
 import { logout } from "../Login/Services/loginService";
 import "../../styles/Dashboard/sidebar.css";
 
 export default function SidebarComponent({ isSidebarOpen, toggleSidebar }) {
+  const [isHovered, setIsHovered] = useState(false);
+
   const items = [
     { label: "Dashboard", icon: "pi pi-fw pi-home", url: "/dashboard" },
     { label: "Produtos", icon: "pi pi-fw pi-box", url: "produtos" },
     { label: "Pedidos", icon: "pi pi-fw pi-receipt", url: "pedidos" },
-    {
-      label: "Integração",
-      icon: "pi pi-fw pi-slack",
-      url: "minhaIntegracao",
-    },
+    { label: "Integração", icon: "pi pi-fw pi-slack", url: "minhaIntegracao" },
     { label: "Comissões", icon: "pi pi-fw pi-dollar", url: "comissoes" },
     { label: "Vendedores", icon: "pi pi-fw pi-users", url: "vendedores" },
     { label: "Configurações", icon: "pi pi-fw pi-cog", url: "configuracoes" },
@@ -22,18 +19,22 @@ export default function SidebarComponent({ isSidebarOpen, toggleSidebar }) {
     { label: "Sair", icon: "pi pi-fw pi-sign-out", url: "/" },
   ];
 
+  const sidebarClass = isSidebarOpen || isHovered ? "open" : "closed";
+
   return (
     <>
       <Button
         icon={isSidebarOpen ? "pi pi-angle-left" : "pi pi-angle-right"}
         onClick={toggleSidebar}
-        className={`toggle-sidebar-button ${isSidebarOpen ? "open" : "closed"}`}
+        className={`toggle-sidebar-button ${sidebarClass}`}
       />
-      <aside className={`custom-sidebar ${isSidebarOpen ? "open" : "closed"}`}>
+      <aside
+        className={`custom-sidebar ${sidebarClass}`}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         <img
-          className={`container-loginFields-logo ${
-            isSidebarOpen ? "open" : "closed"
-          }`}
+          className={`container-loginFields-logo ${sidebarClass}`}
           src="../assets/logos/logoSouDrop.png"
           alt="SouDrop Logo"
         />
