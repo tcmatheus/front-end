@@ -10,7 +10,14 @@ export default function DashboardFornecedor() {
     <div className="dashboardlayout">
       <div className="dashboardContent">
         <div className="cardGroupContainer">
-          <Card
+          <div className="cardGroup">
+            <Card
+              texto={"Vendas esse Mês"}
+              valor={"R$1.000,00"}
+              image={"./assets/icons/Graph.png"}
+            />
+          </div>
+          {/* <Card
             texto={"Total de Vendas Hoje"}
             paragrafo={"do dia 28 Maio 2024, 09:41 PM"}
             tipo={"third"}
@@ -48,12 +55,12 @@ export default function DashboardFornecedor() {
                 />
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
-        <div className="inferior__container">
+        {/* <div className="inferior__container">
           <Ranking />
           <ChamadosPerguntasSection />
-        </div>
+        </div> */}
       </div>
     </div>
   );
