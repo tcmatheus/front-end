@@ -5,13 +5,27 @@
 .cardGroupContainer {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  width: 100%;
+  gap: 10px;
+}
+
+.rightComponents {
+  display: flex;
+  flex-direction: column;
+  width: 34%;
+  gap: 10px;
+}
+
+.salesGroup {
+  width: 65%;
 }
 
 .cardGroup {
   display: flex;
+  justify-content: space-around;
   flex-wrap: wrap;
-  gap: 20px;
+
+  gap: 10px;
 }
 
 .inferior__container {
