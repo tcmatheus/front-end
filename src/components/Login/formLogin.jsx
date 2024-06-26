@@ -6,8 +6,10 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 import "../../styles/Login/loginForm.css";
+import "../../styles/EscolhaUsuario/escolhaUsuario.css";
 import { loginUser } from "../../services/Login/loginService";
 import RegisterUser from "./registerUser";
+import { Image } from "primereact/image";
 
 export default function FormLogin() {
   const [email, setEmail] = useState("");
@@ -28,44 +30,57 @@ export default function FormLogin() {
   };
 
   return (
-    <div className="loginFields">
-      {error && <p className="error">{error}</p>}
-      <FloatLabel>
-        <InputText
-          className="inputField"
-          id="email"
-          type="email"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label className="labelField" htmlFor="email">
-          E-mail
-        </label>
-      </FloatLabel>
-      <FloatLabel>
-        <Password
-          className="inputField"
-          value={senha}
-          id="senha"
-          onChange={(e) => setSenha(e.target.value)}
-          toggleMask
-          inputClassName="inputField"
-          promptLabel="Digite a senha"
-          weakLabel="Fraca"
-          mediumLabel="Média"
-          strongLabel="Forte"
-        />
-        <label className="labelField" htmlFor="senha">
-          Senha
-        </label>
-      </FloatLabel>
-      <Button
-        className="loginButton"
-        onClick={() => handleClick()}
-        label="ENTRAR"
-      />
-      <RegisterUser />
-
-      <p className="forgotPassword">Esqueci a senha</p>
+    <div className="backgroundPage backgroundEscolhaUser">
+      <div className="loginContainer">
+        <div className="glassCard">
+          <div className="container-loginFields-logo">
+            <Image
+              src="../assets/logos/logoSouDrop.png"
+              alt="Image"
+              width="200"
+            />
+            <h1>Sou Drop - Login</h1>
+          </div>
+          <div className="loginFields">
+            {error && <p className="error">{error}</p>}
+            <FloatLabel>
+              <InputText
+                className="inputField"
+                id="email"
+                type="email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <label className="labelField" htmlFor="email">
+                E-mail
+              </label>
+            </FloatLabel>
+            <FloatLabel>
+              <Password
+                className="inputField"
+                value={senha}
+                id="senha"
+                onChange={(e) => setSenha(e.target.value)}
+                toggleMask
+                inputClassName="inputField"
+                promptLabel="Digite a senha"
+                weakLabel="Fraca"
+                mediumLabel="Média"
+                strongLabel="Forte"
+              />
+              <label className="labelField" htmlFor="senha">
+                Senha
+              </label>
+            </FloatLabel>
+            <Button
+              className="loginButton"
+              onClick={() => handleClick()}
+              label="ENTRAR"
+            />
+            <RegisterUser />
+            <p className="forgotPassword">Esqueci a senha</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
