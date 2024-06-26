@@ -1,19 +1,92 @@
+.dashboardContainer {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+}
+
+.dashboardContent {
+  flex-grow: 1;
+  margin: 15px;
+  transition: margin-left 0.3s ease;
+}
+
+.dashboardContent.open {
+  margin-left: 15%;
+}
+
+.dashboardContent.closed {
+  margin-left: 85px;
+}
+
+@media (max-width: 768px) {
+  .dashboardContent.open {
+    margin-left: 60%;
+  }
+
+  .dashboardContent.closed {
+    margin-left: 60px;
+  }
+}
+
 .custom-sidebar {
   background-color: #273733;
-  width: 15%; /* Largura da sidebar */
-  display: flex; /* Exibe os itens em linha */
+  box-shadow: 4px 0 5px -2px rgba(0, 0, 0, 0.2);
+  color: white;
+  display: flex;
   flex-direction: column;
-  color: white; /* Cor do texto */
-  z-index: 1000; /* Garante que a sidebar fique acima de outros conteúdos */
-  box-shadow: 4px 0 5px -2px rgba(0, 0, 0, 0.2); /* S]mbra para destacar a sidebar */
-  position: fixed;
+  align-items: center;
   height: 100%;
+  z-index: 1000;
+  position: fixed;
+  transition: width 0.3s ease, margin-left 0.3s ease;
+  overflow: hidden;
+}
+
+.custom-sidebar.open {
+  width: 15%;
+}
+
+.custom-sidebar.closed {
+  width: 85px;
+}
+
+.custom-sidebar:hover {
+  width: 15%;
+}
+
+.toggle-sidebar-button {
+  border-radius: 20px;
+  position: fixed;
+  top: 10px;
+  z-index: 1100;
+  transition: left 0.3s ease, opacity 0.3s ease;
+}
+
+.toggle-sidebar-button.open {
+  left: calc(15% - 20px);
+}
+
+.toggle-sidebar-button.closed {
+  left: 64px;
+}
+
+.toggle-sidebar-button.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .container-loginFields-logo {
   text-align: center;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin: 30px 0;
+  transition: width 0.3s ease, margin 0.3s ease;
+}
+
+.custom-sidebar.open .container-loginFields-logo {
+  width: 100px;
+}
+
+.custom-sidebar.closed .container-loginFields-logo {
+  width: 70px;
 }
 
 .p-menuitem-link {
@@ -26,23 +99,46 @@
 
 .backgroundMenuSidebar {
   width: 100%;
-  margin-left: 25px;
+  padding: 8px 25px;
   border: none;
   font-family: "Mulish", sans-serif;
   color: #a4a6b3;
-  padding: 8px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 .backgroundMenuSidebar:hover {
-  width: 85%;
+  width: 90%;
+  border-radius: 12px;
   background-color: #31403d;
-  transition: all 0.5s;
   color: #fff;
-  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
+  transition: all 0.3s ease;
 }
 
 .backgroundMenuSidebar__items {
   display: flex;
   align-items: center;
   gap: 12px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.custom-sidebar.closed .backgroundMenuSidebar__items p {
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .custom-sidebar {
+    width: 60px;
+  }
+
+  .custom-sidebar.open {
+    width: 60%;
+  }
+
+  .toggle-sidebar-button.open {
+    left: calc(60% + 4px);
+  }
 }

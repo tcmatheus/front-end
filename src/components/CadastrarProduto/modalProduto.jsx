@@ -11,9 +11,6 @@ export default function ModalProduto({ isVisible, produto }) {
   const [ingredients, setIngredients] = useState([]);
   const [description, setDescription] = useState();
 
-  const userType = localStorage.getItem("userType");
-
-
   return (
     <Dialog
       blockScroll={true}

@@ -1,20 +1,18 @@
-import React, { useEffect } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { useNavigate, Outlet } from "react-router-dom";
+import { useAuth } from "../../../hooks/useAuth"; // Exemplo de hook de autenticação
 
-export default function AuthWrapper() {
+export const AuthWrapper = () => {
+  const { user, isLoading } = useAuth();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const userType = localStorage.getItem("userType");
-    
-    if (!userType) {
-      // Se não encontrar o tipo de usuário, redireciona para a página de escolha do tipo de usuário
-      navigate("/");
-    } else {
-      // Se o tipo de usuário for encontrado, redireciona para a dashboard
-      navigate("/dashboard");
-    }
-  }, []);
+  if (isLoading) {
+    return <div>Carregando...</div>; // Ou algum componente de loading
+  }
 
-  return <Outlet />;
-}
+  if (!user) {
+    navigate("/", { replace: true });
+    return null;
+  }
+
+  return <Outlet />; // Renderiza os componentes filhos se estiver tudo ok
+};

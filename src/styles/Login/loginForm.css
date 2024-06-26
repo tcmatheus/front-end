@@ -13,11 +13,10 @@
   margin-bottom: 20px;
 }
 
-.inputField{
+.inputField {
   height: 3rem;
   width: 30rem;
   border-radius: 10px;
-  
 }
 
 .labelField {
@@ -29,7 +28,6 @@
   color: #fff;
   padding: 15px;
   width: 250px;
-
   font-size: 24px;
   border-radius: 5px;
   font-weight: 700;
@@ -40,11 +38,73 @@
   font-size: 1rem;
   margin-top: 10px;
   padding: 20px;
-
   cursor: pointer;
 }
 
 .forgotPassword:hover {
   color: rgb(21, 211, 4);
   transition: all 0.3s;
+}
+
+.glassCard {
+  background: rgba(212, 212, 212, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2; 
+  border-radius: 10px;
+  margin: 0 50%;
+  width: 100%;
+  color: white;
+  padding: 0 160px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.container-loginFields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.container-loginFields h1 {
+  color: #24667a;
+  font-size: 3rem;
+  margin-top: 10px;
+  text-shadow: #000 1px 1px 1px;
+}
+
+.container-loginFields-logo {
+  text-align: center;
+  width: 100%;
+}
+
+.loginContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.backgroundPage:before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.backgroundEscolhaUser {
+  background-image: url("../../../public/assets/images/backgroundEscolhaUser.webp");
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
 }
