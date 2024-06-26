@@ -12,13 +12,13 @@ export default function DashboardFornecedor() {
     <div className="dashboardlayout">
       <div className="dashboardContent">
         <div className="cardGroupContainer">
-          {/* Total Vendas*/}
+          {/* Total Vendas */}
           <div className="salesGroup">
             <SalesData />
           </div>
 
           <div className="rightComponents">
-            {/* Container Cards*/}
+            {/* Container Cards */}
             <div className="cardGroup">
               <Card
                 tipo={"commun"}
@@ -52,7 +52,7 @@ export default function DashboardFornecedor() {
               />
             </div>
 
-            {/* Container Vendas*/}
+            {/* Container Vendas */}
             <SalesProducts />
           </div>
         </div>

@@ -44,3 +44,17 @@
     flex-direction: column;
   }
 }
+
+@media (max-width: 1130px) {
+  .cardGroup {
+    justify-content: space-between;
+  }
+
+  .rightComponents {
+    width: 100%;
+  }
+
+  .salesGroup {
+    width: 100%;
+  }
+}
