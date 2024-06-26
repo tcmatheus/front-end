@@ -15,11 +15,4 @@
     font-size: 24px;
 }
 
-.backgroundPage::before{
-    background-color: rgba(43, 43, 43, 0.856);
-}
-
-.backgroundEscolhaUser{
-    background-image: url("../../../public/assets/images/backgroundEscolhaUser.webp");
-}
 
