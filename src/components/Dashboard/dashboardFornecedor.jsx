@@ -1,5 +1,7 @@
+import React from "react";
 import Card from "./card";
-
+import SalesData from "./SalesDataComponent/salesData";
+import SalesProducts from "./SalesProductsComponent/salesProducts.jsx";
 import "../../styles/Dashboard/dashboardPage.css";
 import "../../styles/Dashboard/card.css";
 import Ranking from "./Ranking/ranking.jsx";
@@ -10,50 +12,62 @@ export default function DashboardFornecedor() {
     <div className="dashboardlayout">
       <div className="dashboardContent">
         <div className="cardGroupContainer">
-          <Card
-            texto={"Total de Vendas Hoje"}
-            paragrafo={"do dia 28 Máio 2024, 09:41 PM"}
-            tipo={"third"}
-          />
-          <div>
+          {/* Total Vendas */}
+          <div className="salesGroup">
+            <SalesData
+              totalVendasHoje={682.5}
+              vendasHoje={1}
+              vendasOntem={2}
+              vendidos={449}
+              recebidos={426}
+              tempoResposta={"33m"}
+              ultimaAtualizacao={"3h 8m"}
+            />
+          </div>
+
+          <div className="rightComponents">
+            {/* Container Cards */}
             <div className="cardGroup">
               <Card
+                tipo={"commun"}
                 texto={"Vendas esse Mês"}
-                valor={"R$1.000,00"}
-                image={"./assets/icons/Graph.png"}
+                valor={"$682.5"}
+                image={"./assets/icons/Charts.png"}
+                background={"#FFFFFF"}
               />
               <Card
+                tipo={"commun"}
                 texto={"Ativos"}
-                valor={"R$1.000,00"}
-                tipo={"secondary"}
+                valor={"$540.50"}
                 image={"./assets/icons/Chart.png"}
+                background={
+                  "linear-gradient(to bottom right, #4caf50, #1e693b)"
+                }
+                colorTitle={"#E9EDF7"}
+                colorValue={"#FFFFFF"}
               />
               <Card
-                texto={"Clientes"}
-                valor={"R$1.000,00"}
-                image={"./assets/icons/Clients.png"}
+                tipo={"image"}
+                image={"./assets/icons/Ml.png"}
+                background={"#FED33A"}
               />
               <Card
+                tipo={"commun"}
                 texto={"Comissões"}
-                valor={"R$1.000,00"}
+                valor={"$350.40"}
                 image={"./assets/icons/Icon.png"}
+                background={"#FFFFFF"}
               />
-              <div className="cardGroup">
-                <Card
-                  texto={"Chamados"}
-                  paragrafo={"Mais detalhes"}
-                  tipo={"forth"}
-                  tagUm={"Alta"}
-                  tagDois={"Media"}
-                />
-              </div>
             </div>
+
+            {/* Container Vendas */}
+            <SalesProducts />
           </div>
         </div>
-          <div className="inferior__container">
-            <Ranking/>
-            <ChamadosPerguntasSection/>
-          </div>
+        {/* <div className="inferior__container">
+          <Ranking />
+          <ChamadosPerguntasSection />
+        </div> */}
       </div>
     </div>
   );
