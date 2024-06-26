@@ -5,8 +5,8 @@
 .navbar-container {
   display: flex;
   justify-content: space-between;
-
-  margin: 15px;
+  align-items: center;
+  padding: 15px;
 }
 
 .navbar-container h1 {

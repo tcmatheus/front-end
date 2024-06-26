@@ -1,29 +1,32 @@
-.container_banner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  & > img.banner {
-    max-height: 200px;
-    width: 100%;
-
-    object-fit: cover;
-
-    border-radius: 20px;
-  }
+.dashboardlayout {
+  width: 100%;
 }
 
-.destaque__container {
+.cardGroupContainer {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.cardGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .inferior__container {
   display: flex;
+  flex-direction: column;
   gap: 30px;
 }
 
-.dashboardlayout {
-  width: 100%;
+@media (max-width: 768px) {
+  .cardGroupContainer,
+  .cardGroup {
+    flex-direction: column;
+  }
+
+  .inferior__container {
+    flex-direction: column;
+  }
 }

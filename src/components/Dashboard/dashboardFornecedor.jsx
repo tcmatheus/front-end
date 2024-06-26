@@ -1,11 +1,9 @@
+import React from "react";
 import Card from "./card";
-
 import "../../styles/Dashboard/dashboardPage.css";
 import "../../styles/Dashboard/card.css";
 import Ranking from "./Ranking/ranking.jsx";
 import ChamadosPerguntasSection from "./ChamadosPerguntas/chamadosPerguntasSection.jsx";
-import CardComponent from "./CardComponent/card.component.jsx";
-import "../../styles/Dashboard/dashboardPage.css";
 
 export default function DashboardFornecedor() {
   return (
@@ -14,7 +12,7 @@ export default function DashboardFornecedor() {
         <div className="cardGroupContainer">
           <Card
             texto={"Total de Vendas Hoje"}
-            paragrafo={"do dia 28 Máio 2024, 09:41 PM"}
+            paragrafo={"do dia 28 Maio 2024, 09:41 PM"}
             tipo={"third"}
           />
           <div>
