@@ -10,6 +10,7 @@ import "../../styles/EscolhaUsuario/escolhaUsuario.css";
 import { loginUser } from "../../services/Login/loginService";
 import RegisterUser from "./registerUser";
 import { Image } from "primereact/image";
+import ForgotPassword from "./forgotPassword";
 
 export default function FormLogin() {
   const [email, setEmail] = useState("");
@@ -63,9 +64,7 @@ export default function FormLogin() {
                 toggleMask
                 inputClassName="inputField"
                 promptLabel="Digite a senha"
-                weakLabel="Fraca"
-                mediumLabel="Média"
-                strongLabel="Forte"
+                feedback={false}
               />
               <label className="labelField" htmlFor="senha">
                 Senha
@@ -77,7 +76,7 @@ export default function FormLogin() {
               label="ENTRAR"
             />
             <RegisterUser />
-            <p className="forgotPassword">Esqueci a senha</p>
+            <ForgotPassword/>
           </div>
         </div>
       </div>
