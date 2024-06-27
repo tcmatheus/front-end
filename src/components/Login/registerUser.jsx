@@ -7,9 +7,10 @@ import { registerUser } from "../../services/Login/registerService";
 import { loginUser } from "../../services/Login/loginService";
 import { useNavigate } from "react-router-dom";
 import { Dropdown } from "primereact/dropdown";
-import '../../styles/Login/registerUser.css';
-import { db } from "../../firebase-config";
+import { Password } from "primereact/password";
 
+import "../../styles/Login/registerUser.css";
+import { db } from "../../firebase-config";
 
 export default function RegisterUser() {
   const [visible, setVisible] = useState(false);
@@ -21,13 +22,13 @@ export default function RegisterUser() {
 
   const navigate = useNavigate();
 
-  const handleRegister = async () => { 
+  const handleRegister = async () => {
     try {
       const userCredential = await registerUser(email, password);
       await db.collection("users").doc(userCredential.user.uid).set({
         userType: selectedUserType.name,
-        email: email
-      })
+        email: email,
+      });
 
       loginUser(email, password)
         .then(() => {
@@ -40,7 +41,9 @@ export default function RegisterUser() {
       setVisible(false);
     } catch (error) {
       console.error("Erro ao salvar no Firestore:", error);
-      setError("Erro ao registrar. Por favor, verifique os detalhes e tente novamente.");
+      setError(
+        "Erro ao registrar. Por favor, verifique os detalhes e tente novamente."
+      );
     }
   };
 
@@ -52,40 +55,43 @@ export default function RegisterUser() {
         onClick={() => setVisible(true)}
       />
       <Dialog
-      draggable={false}
-      className="nameregistrar"
+        draggable={false}
+        className="nameregistrar"
         header="Registrar-se"
         visible={visible}
-        style={{ width: "44vw", height: "60vh",}}
+        style={{ width: "44vw", height: "60vh" }}
         onHide={() => {
           if (!visible) return;
           setVisible(false);
         }}
       >
-        <FloatLabel 
-        className="emailbox">
+        <FloatLabel className="emailbox">
           <InputText
-          unstyled={true}
-          className="email"
+            type="email"
+            unstyled={true}
+            className="email"
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <label htmlFor="email">Email</label>
         </FloatLabel>
-        <FloatLabel
-        className="senhabox">
-          <InputText
-          unstyled={true}
-          className="senha"
+        <FloatLabel className="senhabox">
+          <Password
+            toggleMask={true}
+            type="password"
+            unstyled={true}
+            className="senha"
             id="password"
+            feedback={false}
+            
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
           <label htmlFor="password">Senha</label>
         </FloatLabel>
         <Dropdown
-        className="dropdown"
+          className="dropdown"
           value={selectedUserType}
           onChange={(e) => setSelectedUserType(e.value)}
           options={userType}
@@ -95,17 +101,12 @@ export default function RegisterUser() {
           highlightOnSelect={false}
         />
         <Button
-        unstyled={true}
-        className="registrar"
+          unstyled={true}
+          className="registrar"
           label="Registrar!"
-          
           onClick={() => handleRegister()}
         ></Button>
-        
-        
       </Dialog>
-
-      
     </div>
   );
 }
