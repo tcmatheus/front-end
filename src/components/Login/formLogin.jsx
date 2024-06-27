@@ -81,12 +81,16 @@ export default function FormLogin() {
                 Senha
               </label>
             </FloatLabel>
+            <RegisterUser />
+            <Button
+        label="Esqueceu a Senha?"
+        className="forgotPassword"
+      />
             <Button
               className="loginButton"
               onClick={() => handleClick()}
               label="ENTRAR"
             />
-            <RegisterUser />
             <button onClick={() => handleLoginAnonymously()}>Entrar Vendedor Anonimo</button>
             <ForgotPassword/>
           </div>

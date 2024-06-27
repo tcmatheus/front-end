@@ -51,15 +51,15 @@ export default function RegisterUser() {
     <div>
       <Button
         label="Registre-se"
-        icon="pi pi-external-link"
         onClick={() => setVisible(true)}
+        className="botaoregistrar"
       />
       <Dialog
         draggable={false}
         className="nameregistrar"
         header="Registrar-se"
         visible={visible}
-        style={{ width: "44vw", height: "60vh" }}
+        style={{ width: "44vw", height: "53vh",}}
         onHide={() => {
           if (!visible) return;
           setVisible(false);
