@@ -77,7 +77,10 @@ export default function FormLogin() {
               label="ENTRAR"
             />
             <RegisterUser />
-            <p className="forgotPassword">Esqueci a senha</p>
+            <Button
+        label="forgotPassword"
+        className="forgotPassword"
+      />
           </div>
         </div>
       </div>
