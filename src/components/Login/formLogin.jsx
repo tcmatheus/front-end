@@ -7,7 +7,7 @@ import { useState } from "react";
 
 import "../../styles/Login/loginForm.css";
 import "../../styles/EscolhaUsuario/escolhaUsuario.css";
-import { loginUser } from "../../services/Login/loginService";
+import { loginAnonymously, loginUser } from "./Services/loginService";
 import RegisterUser from "./registerUser";
 import { Image } from "primereact/image";
 import ForgotPassword from "./forgotPassword";
@@ -29,6 +29,17 @@ export default function FormLogin() {
         setError("Falha no login. Verifique seu e-mail e senha.");
       });
   };
+
+  const handleLoginAnonymously = () => {
+    loginAnonymously()
+      .then(() => {
+        navigate("/dashboard");
+      })
+      .catch((error) => {
+        console.error("Erro ao logar anonimamente:", error);
+        setError("Erro ao tentar logar anonimamente. Por favor, tente novamente.");  
+      });
+  }
 
   return (
     <div className="backgroundPage backgroundEscolhaUser">
@@ -61,7 +72,7 @@ export default function FormLogin() {
                 value={senha}
                 id="senha"
                 onChange={(e) => setSenha(e.target.value)}
-                toggleMask
+                toggleMask={true}
                 inputClassName="inputField"
                 promptLabel="Digite a senha"
                 feedback={false}
@@ -76,6 +87,7 @@ export default function FormLogin() {
               label="ENTRAR"
             />
             <RegisterUser />
+            <button onClick={() => handleLoginAnonymously()}>Entrar Vendedor Anonimo</button>
             <ForgotPassword/>
           </div>
         </div>
