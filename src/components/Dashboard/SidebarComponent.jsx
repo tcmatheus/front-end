@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/Dashboard/sidebar.css";
 import { Link, useNavigate } from "react-router-dom";
-import { logoutUser } from "../../services/Login/loginService";
+import { logoutUser } from "../../components/Login/Services/loginService";
 import { useState } from "react";
 import "../../styles/Dashboard/sidebar.css";
 
