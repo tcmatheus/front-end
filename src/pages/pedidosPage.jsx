@@ -3,17 +3,14 @@ import StatusPedidosSection from "../components/Dashboard/StatusPedidos/statusPe
 import "../styles/pedidosPage.css";
 
 export default function PedidosPage() {
-  const userType = localStorage.getItem("userType");
-
   return (
     <section className="pedidos__container">
       <h1>Pedidos</h1>
-      {userType === "Fornecedor" && (
-        <>
-          <StatusPedidosSection />
-          <Ranking />
-        </>
-      )}
+
+      <>
+        <StatusPedidosSection />
+        <Ranking />
+      </>
     </section>
   );
 }

@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@30;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@30;400;500;600;700&display=swap");
+
 @import "primereact/resources/themes/saga-green/theme.css";
 @import "primereact/resources/primereact.min.css";
 @import "primeicons/primeicons.css";
@@ -24,7 +27,7 @@ body {
 }
 
 .dashboardContent.open {
-  margin-left: 15%;
+  margin-left: 5%;
 }
 
 .dashboardContent.closed {
