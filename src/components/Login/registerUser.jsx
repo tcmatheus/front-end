@@ -48,7 +48,7 @@ export default function RegisterUser() {
   };
 
   return (
-    <div>
+    <>
       <Button
         label="Registre-se"
         onClick={() => setVisible(true)}
@@ -107,6 +107,6 @@ export default function RegisterUser() {
           onClick={() => handleRegister()}
         ></Button>
       </Dialog>
-    </div>
+    </>
   );
 }

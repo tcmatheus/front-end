@@ -36,10 +36,8 @@
 .forgotPassword {
   color: #ffffff;
   font-size: 1rem;
-  margin-top: -87px;
   padding: 20px;
   cursor: pointer;
-  margin-left: 312px;
   background: #4d2b2b00;
     color: #ffffff;
     border-color: #449e48;
@@ -117,9 +115,11 @@
 }
 
 .botaoregistrar{
-  margin-left: -237px;
-  margin-top: -20px;
   background-color: #4d2b2b00;
 }
 
-
+.auxiliarButtons{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}

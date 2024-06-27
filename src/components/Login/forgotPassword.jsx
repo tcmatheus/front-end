@@ -22,10 +22,11 @@ export default function ForgotPassword() {
   };
 
   return (
-    <div>
+    <>
       <Button
-        label="Esqueceu a senha?"
-        icon="pi pi-external-link"
+      unstyled={true}
+      className="forgotPassword"
+        label="Esqueceu a Senha?"
         onClick={() => setVisible(true)}
       />
       <Dialog
@@ -62,6 +63,6 @@ export default function ForgotPassword() {
           ></Button>
           {message}
       </Dialog>
-    </div>
+    </>
   );
 }
