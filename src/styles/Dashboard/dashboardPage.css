@@ -2,7 +2,7 @@
   width: 100%;
 }
 
-.cardGroupContainer {
+.firstGroupContainer {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -28,19 +28,21 @@
   gap: 10px;
 }
 
-.inferior__container {
+.secondGroupContainer {
   display: flex;
-  flex-direction: column;
-  gap: 30px;
+  flex-direction: row;
+
+  margin-top: 20px;
+  gap: 10px;
 }
 
 @media (max-width: 768px) {
-  .cardGroupContainer,
+  .firstGroupContainer,
   .cardGroup {
     flex-direction: column;
   }
 
-  .inferior__container {
+  .secondGroupContainer {
     flex-direction: column;
   }
 }
