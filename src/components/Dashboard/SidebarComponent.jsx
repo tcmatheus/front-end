@@ -1,18 +1,18 @@
 import React from "react";
 import "../../styles/Dashboard/sidebar.css";
 import { Link, useNavigate } from "react-router-dom";
-import { logoutUser } from "../../services/Login/loginService";
+import { logoutUser } from "../../components/Login/Services/loginService";
 import { useState } from "react";
-import { logout } from "../Login/Services/loginService";
 import "../../styles/Dashboard/sidebar.css";
 
 export default function SidebarComponent() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
+  // TODO: Mais pra frente, adicionar um botão para abrir e fechar o sidebar 
+  // const toggleSidebar = () => {
+  //   setIsSidebarOpen(!isSidebarOpen);
+  // };
 
   const items = [
     { label: "Dashboard", icon: "pi pi-fw pi-home", url: "/dashboard" },
@@ -61,7 +61,6 @@ export default function SidebarComponent() {
         />
         {items.map((el) => (
           <Link
-            onClick={() => logout(el.label)}
             className="backgroundMenuSidebar"
             to={el.url}
             key={el.label}

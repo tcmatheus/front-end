@@ -1,4 +1,4 @@
-import { auth } from "../../firebase-config";
+import { auth } from "../../../firebase-config";
 
 export const registerUser = async (email, password) => {
   try {

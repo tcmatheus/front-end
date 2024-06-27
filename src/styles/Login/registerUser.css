@@ -1,15 +1,17 @@
 
-.email, .senha {
+.email{
     width: 100%; 
-    
-    padding:  19px; 
+    padding:  20px; 
     margin: 10px auto 20px auto; 
     border: 1px solid #ccc; 
     border-radius: 4px; 
 }
 
-
-
+.senha input{ 
+    width: 100%;
+    margin: 10px auto; 
+    padding:  20px; 
+}
 
 .p-dialog-title {
     text-align: center; 
@@ -23,12 +25,10 @@
     border-radius: 16px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
     width: 500px; 
-    
 }
 
 
 .emailbox {
-   
     width: 100%; 
     margin-left: auto; 
     margin-right: auto;
@@ -38,7 +38,8 @@
 }
 
 .senhabox {
-    margin-top: 15px;
+    width: 100%;
+    margin-top: 0px;
 }
 
 .p-dialog-content{
@@ -50,9 +51,6 @@
 .p-dropdown-label{
     width: 50%;
 }
-
-
-
 
 .registrar {
     display: block;
@@ -80,11 +78,7 @@
     background-color: #52855d; 
 }
 
-
-
 .dropdown {
-
-
     padding: 12px 16px;
     margin: 0 auto 10px auto; 
     border: 1px solid #ccc;
@@ -115,8 +109,6 @@
 .dropdown option:hover {
     background-color: #f0f0f0; 
 }
-
-
 
 .nameregistrar {
     background-color: #1f8a482c; 
