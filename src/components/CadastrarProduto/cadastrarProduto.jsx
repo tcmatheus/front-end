@@ -6,6 +6,8 @@ import { InputTextarea } from "primereact/inputtextarea";
 import { Dropdown } from "primereact/dropdown";
 import { useState } from "react";
 
+import { criarProduto } from "../CadastrarProduto/Services/produtosService";
+
 import "../../styles/modalProduto.css";
 
 export default function CadastrarProduto({ produto }) {
@@ -14,12 +16,14 @@ export default function CadastrarProduto({ produto }) {
   const [categoria, setCategorias] = useState(null);
   const [ingredients, setIngredients] = useState([]);
   const [description, setDescription] = useState();
-  const [ean, setEan] = useState("");
   const [lucroValor, setLucroValor] = useState(0);
   const [lucroPercentual, setLucroPercentual] = useState(0);
+  const [ean, setEan] = useState("");
   const [preco, setPreco] = useState(0);
   const [precoVenda, setPrecoVenda] = useState(0);
   const [sku, setSku] = useState("");
+  const [imagemUrl, setImagemUrl] = useState("");
+  const [titulo, setTitulo] = useState("");
 
   const categorias = [
     { name: "Esporte" },
@@ -29,6 +33,32 @@ export default function CadastrarProduto({ produto }) {
     { name: "Lazer" },
     { name: "Eletrônico" },
   ];
+
+  const handleCriaProduto = async () => {
+    const produto = {
+      nome: titulo,
+      tipo: "P",
+      formato: "S",
+      codigo: sku,
+      EAN: ean,
+      situacao: "A",
+      unidade: "Un",
+      preco: preco,
+      descricaoCurta: description,
+      midia:{
+        imagens:{
+          externas:[
+            {
+              link: imagemUrl
+            }
+          ],
+          internas:[]
+        }
+      }
+    };
+
+    await criarProduto(produto);
+  };
 
   const onIngredientsChange = (e) => {
     let _ingredients = [...ingredients];
@@ -70,18 +100,16 @@ export default function CadastrarProduto({ produto }) {
     <>
       <div className="imagemProduto">
         <div className="imagemProduto__container">
-          <img src={produto?.imagemURL} alt="" width={300} height={340} />
+          <img src={produto?.imagemURL} alt="" width={350} height={300} />
           <div className="botoes">
             <Button label="Adicionar" severity="success" />
-            {userType === "Vendedor" && (
-              <>
-                <Button label="Baixar" severity="info" />
-                <Button label="Remover" severity="danger" />
-              </>
-            )}
           </div>
           <div className="imagemProduto__containerBtn">
-            <Button label="CADASTRAR PRODUTO" severity="primary" />
+            <Button
+              onClick={() => handleCriaProduto()}
+              label="CADASTRAR PRODUTO"
+              severity="primary"
+            />
           </div>
         </div>
         <div>
@@ -103,19 +131,23 @@ export default function CadastrarProduto({ produto }) {
                 <p>Custo: R$ {produto?.precoCusto}</p>
                 <p>Frete: R$ 0</p>
                 <p>Comissão: R$ 7.36 (18%)</p>
+                <p>Lucro: R$ 2.90 (10%)</p>
               </div>
             </div>
           </div>
-          <form className="formProduto">
-            <div className="tituloLucroInputs">
-              <FloatLabel className="input">
-                <InputText id="titulo" />
-                <label htmlFor="titulo">Título</label>
-              </FloatLabel>
-              <FloatLabel className="input">
-                <InputText id="lucro" keyfilter="money" value={lucroValor} onChange={handleLucroChange} />
-                <label htmlFor="lucro">Lucro(%)</label>
-              </FloatLabel>
+          <form className="formProduto" action="">
+            <div>
+              <div className="tituloLucroInputs">
+                <FloatLabel className="input">
+                  <InputText id="titulo" onChange={(e) => setTitulo(e.target.value)} />
+                  <label htmlFor="titulo">Título</label>
+                </FloatLabel>
+                <FloatLabel className="input">
+                  <InputText id="lucro" keyfilter="money" value={lucroValor} onChange={handleLucroChange} />
+                  <label htmlFor="lucro">Lucro(%)</label>
+                </FloatLabel>
+              </div>
+         
             </div>
 
             <Dropdown
@@ -145,6 +177,11 @@ export default function CadastrarProduto({ produto }) {
             <FloatLabel className="sku">
               <InputText id="sku" value={sku} onChange={handleSkuChange} />
               <label htmlFor="sku">SKU</label>
+            </FloatLabel>
+            
+            <FloatLabel className="imagemUrl">
+                <InputText id="imagemUrl" onChange={(e) => setImagemUrl(e.target.value)} />
+                <label htmlFor="imagemUrl">Link da Imagem</label>
             </FloatLabel>
 
             <div className="checkboxGroup flex flex-wrap justify-content-center gap-3">
