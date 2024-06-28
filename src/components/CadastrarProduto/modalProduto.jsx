@@ -16,7 +16,7 @@ export default function ModalProduto({ isVisible, produto }) {
       blockScroll={true}
       draggable={false}
       visible={isOpen}
-      style={{ width: "80vw", height: "100vh" }}
+      style={{ width: "60vw", height: "100vh" }}
       onHide={() => {
         if (!isOpen) return;
         setIsOpen(false);

@@ -37,7 +37,7 @@ export default function CadastrarProduto({produto}) {
   return (
     <>
       <div className="imagemProduto">
-        <div className="imagemProduto__container">
+        <div className="imagemProduto__container" >
           <img src={produto?.imagemURL} alt="" width={300} height={340} />
           <div className="botoes">
             <Button label="Adicionar" severity="success" />
@@ -92,17 +92,34 @@ export default function CadastrarProduto({produto}) {
                 options={categorias}
                 optionLabel="name"
                 placeholder="Selecione a categoria"
-                className="w-full md:w-14rem input dropdown"
+                className="dropdowncategoria"
                 checkmark={true}
                 highlightOnSelect={false}
               />
-              <div className="inputEAN">
-                <FloatLabel className="input">
+
+<div className="inputEAN">
+                 <FloatLabel>
+                  <InputText className="preco" id="preco" />
+                  <label htmlFor="preco">Preço</label>
+                </FloatLabel>
+
+              
+                <FloatLabel className="eaninput">
                   <InputText id="EAN" />
-                  <label htmlFor="EAN">GERAR EAN</label>
+                  <label htmlFor="EAN">Gerar EAN</label>
                 </FloatLabel>
                 <Button label="GERAR EAN" className="btnEAN" severity="info" />
               </div>
+
+              
+                <FloatLabel className="sku">
+                  <InputText id="sku" />
+                  <label htmlFor="sku">SKU</label>
+                </FloatLabel>
+
+
+
+
             </div>
 
             <div className="checkboxGroup flex flex-wrap justify-content-center gap-3">
@@ -114,33 +131,13 @@ export default function CadastrarProduto({produto}) {
                   onChange={onIngredientsChange}
                   checked={ingredients.includes("Cheese")}
                 />
-                <label htmlFor="ingredient1" className="ml-2">
-                  <img src="https://www.picsum.photos/100" alt="" />
+                <label htmlFor="ingredient1" className="bling">
+                  <img src="https://www.bling.com.br/site/assets//images/bling.svg" alt="" />
                 </label>
               </div>
               <div className="flex checkbox align-items-center">
-                <Checkbox
-                  inputId="ingredient2"
-                  name="pizza"
-                  value="Mushroom"
-                  onChange={onIngredientsChange}
-                  checked={ingredients.includes("Mushroom")}
-                />
-                <label htmlFor="ingredient2" className="ml-2">
-                  <img src="https://www.picsum.photos/100" alt="" />
-                </label>
-              </div>
-              <div className="flex checkbox align-items-center">
-                <Checkbox
-                  inputId="ingredient3"
-                  name="pizza"
-                  value="Pepper"
-                  onChange={onIngredientsChange}
-                  checked={ingredients.includes("Pepper")}
-                />
-                <label htmlFor="ingredient3" className="ml-2">
-                  <img src="https://www.picsum.photos/100" alt="" />
-                </label>
+                
+                
               </div>
             </div>
           </form>
