@@ -51,6 +51,7 @@ export default function CadastrarProduto({ produto }) {
     setLucroValor(valor);
     const percentual = preco > 0 ? (valor / preco) * 100 : 0;
     setLucroPercentual(percentual.toFixed(2));
+    setPrecoVenda(preco + valor);  
   };
 
   const handlePrecoChange = (e) => {
@@ -102,7 +103,6 @@ export default function CadastrarProduto({ produto }) {
                 <p>Custo: R$ {produto?.precoCusto}</p>
                 <p>Frete: R$ 0</p>
                 <p>Comissão: R$ 7.36 (18%)</p>
-                <p>Lucro: R$ {lucroValor} ({lucroPercentual}%)</p>
               </div>
             </div>
           </div>
