@@ -178,6 +178,11 @@ export default function CadastrarProduto({ produto }) {
               <InputText id="sku" value={sku} onChange={handleSkuChange} />
               <label htmlFor="sku">SKU</label>
             </FloatLabel>
+            
+            <FloatLabel className="imagemUrl">
+                <InputText id="imagemUrl" onChange={(e) => setImagemUrl(e.target.value)} />
+                <label htmlFor="imagemUrl">Link da Imagem</label>
+            </FloatLabel>
 
             <div className="checkboxGroup flex flex-wrap justify-content-center gap-3">
               <div className="flex checkbox align-items-center">
