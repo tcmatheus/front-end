@@ -90,7 +90,9 @@ export default function FormLogin() {
               onClick={() => handleClick()}
               label="ENTRAR"
             />
-            <button onClick={() => handleLoginAnonymously()}>Entrar Vendedor Anonimo</button>
+            <button
+            className="anonimoButton"
+             onClick={() => handleLoginAnonymously()}>Entrar Vendedor Anonimo</button>
       
           </div>
         </div>
