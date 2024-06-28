@@ -7,6 +7,10 @@
 .imagemProduto__container{
   display: flex;
   flex-direction: column;
+  background-image: url("../../public/assets/images/imagemproduto.png");
+  background-repeat: no-repeat;
+  background-position:inherit;
+  background-size:auto; 
 }
 
 .imagemProduto__containerBtn{
@@ -17,6 +21,7 @@
 
 .imagemProduto__containerBtn > Button{
   width: 100%;
+  
 }
 
 .botoes{
@@ -32,6 +37,7 @@
   color: #000;
   line-height: 1rem;
   font-size: 18px;
+  
 }
 
 .formProduto{
@@ -102,4 +108,21 @@
   display: flex;
   gap: 10px;
   width: 422px;
+}
+
+
+.sku{
+  display: flex;
+  gap: 10px;
+  width: 422px;
+  margin-bottom: px;
+  margin-top: -10px;
+  margin-bottom: 35px;
+}
+
+
+.bling img {
+  border: #ad1717;
+  width: 180px; 
+  height: auto; 
 }
