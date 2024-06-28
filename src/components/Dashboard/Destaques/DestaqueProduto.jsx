@@ -10,6 +10,7 @@ export default function DestaqueProduto({ produto }) {
         <img width={100} src={produto?.imagemURL}></img>
         <h3 className="destaqueProduto__nome">{produto.nome}</h3>
         <p className="destaqueProduto__nome">Preço: R${produto.preco}</p>
+        <p className="destaqueProduto__nome">Preço: R${produto.descricaoCurta}</p>
         
         {/* <p className="destaqueProduto__custo">Preço de Custo: {produto.precoCusto}</p> */}
         {/* <p className="destaqueProduto__venda">Preço de Venda: {produto.precoVenda}</p> */}

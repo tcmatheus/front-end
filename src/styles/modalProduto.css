@@ -27,8 +27,7 @@
 
 .infoProduto {
   display: flex;
-  gap: 15rem;
-
+  justify-content: space-between;
   font-weight: 700;
   color: #000;
   line-height: 1rem;
@@ -43,6 +42,7 @@
   display: flex;
   gap: 10px;
   width: 100%;
+  margin-bottom: 10px;
 }
 
 #titulo{
@@ -69,8 +69,9 @@
   font-weight: 700;
 }
 
-.dropdown{
+.dropdowncategoria{
   width: 100%;
+  margin-bottom: 15px;
 }
 
 .checkboxGroup{
@@ -85,4 +86,20 @@
 
 .descriptionInput{
   margin-top: 4rem;
+}
+
+.btnEAN{
+  margin-top: 0px;
+
+}	
+
+.eaninput{
+  margin-top: 0px;
+  margin-left: 0px;
+}
+
+.preco{
+  display: flex;
+  gap: 10px;
+  width: 422px;
 }

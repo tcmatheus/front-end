@@ -92,17 +92,34 @@ export default function CadastrarProduto({produto}) {
                 options={categorias}
                 optionLabel="name"
                 placeholder="Selecione a categoria"
-                className="w-full md:w-14rem input dropdown"
+                className="dropdowncategoria"
                 checkmark={true}
                 highlightOnSelect={false}
               />
-              <div className="inputEAN">
-                <FloatLabel className="input">
+
+<div className="inputEAN">
+                 <FloatLabel>
+                  <InputText className="preco" id="preco" />
+                  <label htmlFor="preco">Preço</label>
+                </FloatLabel>
+
+              
+                <FloatLabel className="eaninput">
                   <InputText id="EAN" />
                   <label htmlFor="EAN">GERAR EAN</label>
                 </FloatLabel>
                 <Button label="GERAR EAN" className="btnEAN" severity="info" />
               </div>
+
+              
+                <FloatLabel className="sku">
+                  <InputText id="sku" />
+                  <label htmlFor="slu">SKU</label>
+                </FloatLabel>
+
+
+
+
             </div>
 
             <div className="checkboxGroup flex flex-wrap justify-content-center gap-3">
