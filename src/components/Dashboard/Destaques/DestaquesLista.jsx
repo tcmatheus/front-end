@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import DestaqueProduto from "./DestaqueProduto";
-import getAllProducts from "../../CadastrarProduto/Services/produtosService";
+import {getAllProducts} from "../../CadastrarProduto/Services/produtosService";
 
 export default function DestaquesLista() {
 
