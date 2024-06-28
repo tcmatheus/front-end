@@ -8,14 +8,14 @@ import { useState } from "react";
 
 import "../../styles/modalProduto.css";
 
-export default function CadastrarProduto({produto}) {
+export default function CadastrarProduto({ produto }) {
+  const userType = localStorage.getItem("userType");
 
-    const userType = localStorage.getItem("userType");
+  const [categoria, setCategorias] = useState(null);
+  const [ingredients, setIngredients] = useState([]);
+  const [description, setDescription] = useState();
+  const [ean, setEan] = useState("");  
 
-    const [categoria, setCategorias] = useState(null);
-    const [ingredients, setIngredients] = useState([]);
-    const [description, setDescription] = useState();
-    
   const categorias = [
     { name: "Esporte" },
     { name: "Games" },
@@ -27,11 +27,18 @@ export default function CadastrarProduto({produto}) {
 
   const onIngredientsChange = (e) => {
     let _ingredients = [...ingredients];
-
     if (e.checked) _ingredients.push(e.value);
     else _ingredients.splice(_ingredients.indexOf(e.value), 1);
-
     setIngredients(_ingredients);
+  };
+
+  const generateEAN = (e) => {
+    e.preventDefault();  
+    let ean = '';
+    for (let i = 0; i < 15; i++) {
+      ean += Math.floor(Math.random() * 10); 
+    }
+    setEan(ean); 
   };
 
   return (
@@ -58,18 +65,18 @@ export default function CadastrarProduto({produto}) {
               <p>{produto?.nome}</p>
               <div>
                 <p>{produto?.SKU}</p>
-                <p>Ean: 0000000000000</p>
+                <p>Ean: {ean || '0000000000000'}</p> 
                 <p>Preço: R$ {produto?.preco}</p>
-                <p>Preço de venda: R$ {produto?.precoVenda}</p>
+                <p>Preço de venda: R$ {produto?.precoVenda}</p>
               </div>
             </div>
             <div className="formProduto__infoDois">
               <p>Composição preço de Venda</p>
               <div>
-                <p>Custo: R$ {produto?.precoCusto}</p>
-                <p>Frete: R$ 0</p>
-                <p>Comissão: R$ 7.36 (18%)</p>
-                <p>Lucro: R$ 2.90 (10%)</p>
+                <p>Custo: R$ {produto?.precoCusto}</p>
+                <p>Frete: R$ 0</p>
+                <p>Comissão: R$ 7.36 (18%)</p>
+                <p>Lucro: R$ 2.90 (10%)</p>
               </div>
             </div>
           </div>
@@ -97,29 +104,23 @@ export default function CadastrarProduto({produto}) {
                 highlightOnSelect={false}
               />
 
-<div className="inputEAN">
-                 <FloatLabel>
+              <div className="inputEAN">
+                <FloatLabel>
                   <InputText className="preco" id="preco" />
                   <label htmlFor="preco">Preço</label>
                 </FloatLabel>
 
-              
                 <FloatLabel className="eaninput">
-                  <InputText id="EAN" />
+                  <InputText id="EAN" value={ean} onChange={(e) => setEan(e.target.value)} />
                   <label htmlFor="EAN">Gerar EAN</label>
                 </FloatLabel>
-                <Button label="GERAR EAN" className="btnEAN" severity="info" />
+                <Button label="GERAR EAN" className="btnEAN" severity="info" onClick={(e) => generateEAN(e)} />
               </div>
 
-              
-                <FloatLabel className="sku">
-                  <InputText id="sku" />
-                  <label htmlFor="sku">SKU</label>
-                </FloatLabel>
-
-
-
-
+              <FloatLabel className="sku">
+                <InputText id="sku" />
+                <label htmlFor="sku">SKU</label>
+              </FloatLabel>
             </div>
 
             <div className="checkboxGroup flex flex-wrap justify-content-center gap-3">
@@ -134,10 +135,6 @@ export default function CadastrarProduto({produto}) {
                 <label htmlFor="ingredient1" className="bling">
                   <img src="https://www.bling.com.br/site/assets//images/bling.svg" alt="" />
                 </label>
-              </div>
-              <div className="flex checkbox align-items-center">
-                
-                
               </div>
             </div>
           </form>
