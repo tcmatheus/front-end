@@ -157,7 +157,7 @@ export default function CadastrarProduto({ produto }) {
                   checked={ingredients.includes("Cheese")}
                 />
                 <label htmlFor="ingredient1" className="bling">
-                  <img src="https://www.bling.com.br/site/assets//images/bling.svg" alt="" />
+                  < img src="https://www.bling.com.br/site/assets//images/bling.svg" alt="" className="imagembling" />
                 </label>
               </div>
             </div>
