@@ -302,7 +302,7 @@ export default function CadastrarProduto({ produto }) {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           rows={10}
-          cols={120}
+          cols={126}
         />
         <label htmlFor="description">Descrição do Produto</label>
       </FloatLabel>

@@ -7,7 +7,7 @@ export default function ModalProduto({ isVisible, onClose, produto }) {
       blockScroll={true}
       draggable={false}
       visible={isVisible}
-      style={{ width: "80vw", height: "100vh" }}
+      style={{ width: "63vw", height: "100vh" }}
       onHide={onClose}
       modal={true}
     >
