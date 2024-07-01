@@ -7,6 +7,10 @@
 .imagemProduto__container{
   display: flex;
   flex-direction: column;
+  background-image: url("../../public/assets/images/imagemproduto.png");
+  background-repeat: no-repeat;
+  background-position:inherit;
+  background-size:auto; 
 }
 
 .imagemProduto__containerBtn{
@@ -17,6 +21,7 @@
 
 .imagemProduto__containerBtn > Button{
   width: 100%;
+  
 }
 
 .botoes{
@@ -27,12 +32,12 @@
 
 .infoProduto {
   display: flex;
-  gap: 15rem;
-
+  justify-content: space-between;
   font-weight: 700;
   color: #000;
   line-height: 1rem;
   font-size: 18px;
+  
 }
 
 .formProduto{
@@ -43,6 +48,7 @@
   display: flex;
   gap: 10px;
   width: 100%;
+  margin-bottom: 10px;
 }
 
 #titulo{
@@ -69,8 +75,9 @@
   font-weight: 700;
 }
 
-.dropdown{
+.dropdowncategoria{
   width: 100%;
+  margin-bottom: 15px;
 }
 
 .checkboxGroup{
@@ -85,4 +92,43 @@
 
 .descriptionInput{
   margin-top: 4rem;
+}
+
+.btnEAN{
+  margin-top: 0px;
+
+}	
+
+.eaninput{
+  margin-top: 0px;
+  margin-left: 0px;
+}
+
+.preco{
+  display: flex;
+  gap: 10px;
+  width: 422px;
+}
+
+
+.sku{
+  display: flex;
+  gap: 10px;
+  width: 422px;
+  margin-bottom: px;
+  margin-top: -10px;
+  margin-bottom: 35px;
+}
+
+
+.bling img {
+  border: #1dc20e;
+  width: 180px; 
+  height: auto; 
+  margin-left: 0px;
+}
+
+
+.imagemUrl{
+  margin-top: 17px;
 }

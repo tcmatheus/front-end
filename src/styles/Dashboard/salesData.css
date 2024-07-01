@@ -1,0 +1,81 @@
+.salesContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+
+  padding: 20px;
+  border-radius: 20px;
+
+  background-color: #ffffff;
+  font-family: "Mulish", sans-serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.salesHeader {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.salesHeader h2 {
+  color: #083718;
+  font-weight: 500;
+  margin: 0;
+}
+
+.salesHeader p {
+  color: #9fa2b4;
+  font-size: 15px;
+  margin: 0;
+}
+
+.salesValue {
+  margin: 30px 0;
+}
+
+.salesValue p {
+  color: #9fa2b4;
+  font-size: 15px;
+  margin: 0;
+}
+
+.salesValue h1 {
+  font-size: 2.5em;
+  color: #156c1d;
+  margin: 0px;
+}
+
+.salesInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.salesInfo p {
+  color: #9fa2b4;
+  font-size: 15px !important;
+
+  text-align: center;
+
+  padding: 0px;
+  margin: 6px 0px 0px 6px;
+}
+
+.salesInfo h2 {
+  color: #083718;
+  font-size: 24px;
+}
+
+.salesInfo div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2em;
+  font-weight: bold;
+}

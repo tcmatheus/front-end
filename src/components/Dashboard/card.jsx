@@ -1,30 +1,44 @@
 import "../../styles/Dashboard/card.css";
-import PriorityCard from "./priorityCard";
+import StackedBarChart from "./Charts/stackedBarChart";
 
-export default function Card({ texto, tipo, valor, paragrafo, image, tagUm, tagDois }) {
+export default function Card({
+  texto,
+  valor,
+  hasChart,
+  tipo,
+  image,
+  background,
+  colorTitle,
+  colorValue,
+}) {
   return (
     <div
-      className={
-        tipo === "secondary"
-          ? "card-container-secondary"
-          : tipo === "third"
-          ? "card-container-third"
-          : tipo === "forth"
-          ? "card-container-forth"
-          : "card-container"
-      }
+      className={`card-container ${tipo === "commun" ? "commun" : "image"}`}
+      style={{ background }}
     >
-      <div>
-        <p className="cardContentTitle">{texto}</p>
-        <h2 className="cardContentValor">{valor}</h2>
-        <h3 className="">{paragrafo}</h3>
-      </div>
-      <div className="priorityCard__container">
-        {tagUm === "Baixa" || tagDois === "Baixa" && <PriorityCard tags={["Baixa", "Baixa"]} />}
-        {tagUm === "Media" || tagDois === "Media" && <PriorityCard tags={["Media", "Media"]} />}
-        {tagUm === "Alta" || tagDois === "Alta" && <PriorityCard tags={["Alta", "Alta"]} />}
-      </div>
-      <img src={image} alt="" width={60} />
+      {tipo === "image" ? (
+        <>
+          <img src={image} alt="" width={150} />
+          <img src={"./assets/icons/Bell.png"} alt="" width={20} />
+        </>
+      ) : (
+        <div className="card-content__text">
+          <p style={{ color: colorTitle }}>{texto}</p>
+          <h2 style={{ color: colorValue }}>{valor}</h2>
+        </div>
+      )}
+
+      {hasChart === true && tipo !== "image" && (
+        <div className="chart-card-container">
+          <StackedBarChart />
+        </div>
+      )}
+
+      {tipo !== "image" && (
+        <div>
+          <img src={image} alt="" width={60} />
+        </div>
+      )}
     </div>
   );
 }
