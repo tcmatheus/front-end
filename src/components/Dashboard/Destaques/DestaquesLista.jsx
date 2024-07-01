@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import DestaqueProduto from "./DestaqueProduto";
-import {getAllProducts} from "../../CadastrarProduto/Services/produtosService";
+import { getAllProducts } from "../../CadastrarProduto/Services/produtosService";
 
 export default function DestaquesLista() {
+  const [isloading, setIsLoading] = useState([]);
 
   const [produtos, setProdutos] = useState([]);
 
@@ -16,16 +17,25 @@ export default function DestaquesLista() {
   };
 
   useEffect(() => {
-    getProdutos();
+    getProdutos().then(() => {
+      produtos.sort((a, b) => a.nome.localeCompare(b.nome));
+
+      setIsLoading(false);
+    });
   }, [produtos]);
 
   return (
     <div className="destaquesConjunto">
-      <div className="scrollContainer">
-        {produtos.map((produto) => (
-          <DestaqueProduto key={produto.id} produto={produto} />
-        ))}
-      </div>
+      {isloading ? (
+        <div className="loading" />
+      ) : (
+        <>
+          {" "}
+          {produtos.map((produto) => (
+            <DestaqueProduto key={produto.id} produto={produto} />
+          ))}
+        </>
+      )}
     </div>
   );
 }
