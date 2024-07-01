@@ -154,7 +154,15 @@ export default function CadastrarProduto({ produto }) {
         <div className="imagemProduto__container">
           <img src={produto?.imagemURL} alt="" width={350} height={300} />
           <div className="botoes">
-            <Button label="Adicionar" severity="success" />
+          <FloatLabel className="imagemUrl">
+    <InputText
+        id="imagemUrl"
+        className="imagemtextoUrl"
+        style={{ width: '350px', }}
+        onChange={(e) => setImagemUrl(e.target.value)}
+    />
+    <label htmlFor="imagemUrl">Link da Imagem</label>
+</FloatLabel>
           </div>
           <div className="imagemProduto__containerBtn">
             {!produtoCadastrado && (
