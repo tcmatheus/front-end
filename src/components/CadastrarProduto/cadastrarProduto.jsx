@@ -74,6 +74,9 @@ export default function CadastrarProduto({ produto }) {
           internas: [],
         },
       },
+      categoria: {
+        id: 9924431,
+      },
     };
 
     await criarProduto(novoProduto);
@@ -274,7 +277,6 @@ export default function CadastrarProduto({ produto }) {
               <InputText id="sku" value={sku} onChange={handleSkuChange} />
               <label htmlFor="sku">SKU</label>
             </FloatLabel>
-            
             <div className="checkboxGroup flex flex-wrap justify-content-center gap-3">
               <div className="flex checkbox align-items-center">
                 <Checkbox

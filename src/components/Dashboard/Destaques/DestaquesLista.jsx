@@ -19,7 +19,7 @@ export default function DestaquesLista() {
 
   useEffect(() => {
     getProdutos();
-  }, []);
+  }, [produtos]);
 
   const handleProdutoClick = (produto) => {
     setSelectedProduto(produto);
