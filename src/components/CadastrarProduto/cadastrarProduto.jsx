@@ -4,18 +4,22 @@ import { FloatLabel } from "primereact/floatlabel";
 import { InputText } from "primereact/inputtext";
 import { InputTextarea } from "primereact/inputtextarea";
 import { Dropdown } from "primereact/dropdown";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-import { criarProduto } from "../CadastrarProduto/Services/produtosService";
+import {
+  criarProduto,
+  alterarProduto,
+  deletarProduto,
+} from "../CadastrarProduto/Services/produtosService";
 
 import "../../styles/modalProduto.css";
 
 export default function CadastrarProduto({ produto }) {
-  const userType = localStorage.getItem("userType");
+  const produtoCadastrado = !!produto;
 
   const [categoria, setCategorias] = useState(null);
   const [ingredients, setIngredients] = useState([]);
-  const [description, setDescription] = useState();
+  const [description, setDescription] = useState("");
   const [lucroValor, setLucroValor] = useState(0);
   const [lucroPercentual, setLucroPercentual] = useState(0);
   const [ean, setEan] = useState("");
@@ -25,40 +29,88 @@ export default function CadastrarProduto({ produto }) {
   const [imagemUrl, setImagemUrl] = useState("");
   const [titulo, setTitulo] = useState("");
 
-  const categorias = [
-    { name: "Esporte" },
-    { name: "Games" },
-    { name: "Banho" },
-    { name: "Casa" },
-    { name: "Lazer" },
-    { name: "Eletrônico" },
-  ];
+  const [produtoId, setProdutoId] = useState({});
+
+  const categorias = [{ name: "Produto" }];
+
+  useEffect(() => {
+    if (produto) {
+      setProdutoId(produto.id);
+      setTitulo(produto.nome || "");
+      setSku(produto.codigo || "");
+      setEan(produto.EAN || "");
+      setPreco(produto.preco || 0);
+      setPrecoVenda(produto.precoVenda || 0);
+      setLucroValor(produto.lucroValor || 0);
+      setLucroPercentual(produto.lucroPercentual || 0);
+      setImagemUrl(produto.imagemURL || "");
+      setDescription(produto.descricaoCurta || "");
+      const categoriaEncontrada = categorias.find(
+        (cat) => cat.name === produto.categoria
+      );
+      setCategorias(categoriaEncontrada || null);
+      setIngredients(produto.ingredients || []);
+    }
+  }, [produto]);
 
   const handleCriaProduto = async () => {
-    const produto = {
+    const novoProduto = {
       nome: titulo,
       tipo: "P",
       formato: "S",
       codigo: sku,
-      EAN: ean,
+      gtin: ean,
       situacao: "A",
       unidade: "Un",
       preco: preco,
       descricaoCurta: description,
-      midia:{
-        imagens:{
-          externas:[
+      midia: {
+        imagens: {
+          externas: [
             {
-              link: imagemUrl
-            }
+              link: imagemUrl,
+            },
           ],
-          internas:[]
-        }
-      }
+          internas: [],
+        },
+      },
     };
 
-    await criarProduto(produto);
+    await criarProduto(novoProduto);
   };
+
+  const handleAlteraProduto = async () => {
+    const produtoAtualizado = {
+      nome: titulo,
+      tipo: "P",
+      formato: "S",
+      codigo: sku,
+      gtin: ean,
+      situacao: "A",
+      unidade: "Un",
+      preco: preco,
+      descricaoCurta: description,
+      midia: {
+        imagens: {
+          externas: [
+            {
+              link: imagemUrl,
+            },
+          ],
+          internas: [],
+        },
+      },
+      categoria: {
+        id: 9924431,
+      },
+    };
+    await alterarProduto(produtoId, produtoAtualizado);
+  };
+
+  const handleDeletaProduto = async () => {
+    await deletarProduto(produtoId);
+  };
+
 
   const onIngredientsChange = (e) => {
     let _ingredients = [...ingredients];
@@ -68,12 +120,12 @@ export default function CadastrarProduto({ produto }) {
   };
 
   const generateEAN = (e) => {
-    e.preventDefault();  
-    let ean = '';
-    for (let i = 0; i < 15; i++) {
-      ean += Math.floor(Math.random() * 10); 
+    e.preventDefault();
+    let novoEan = "";
+    for (let i = 0; i < 14; i++) {
+      novoEan += Math.floor(Math.random() * 10);
     }
-    setEan(ean); 
+    setEan(novoEan);
   };
 
   const handleLucroChange = (e) => {
@@ -81,7 +133,7 @@ export default function CadastrarProduto({ produto }) {
     setLucroValor(valor);
     const percentual = preco > 0 ? (valor / preco) * 100 : 0;
     setLucroPercentual(percentual.toFixed(2));
-    setPrecoVenda(preco + valor);  
+    setPrecoVenda(preco + valor);
   };
 
   const handlePrecoChange = (e) => {
@@ -105,11 +157,26 @@ export default function CadastrarProduto({ produto }) {
             <Button label="Adicionar" severity="success" />
           </div>
           <div className="imagemProduto__containerBtn">
-            <Button
-              onClick={() => handleCriaProduto()}
-              label="CADASTRAR PRODUTO"
-              severity="primary"
-            />
+            {!produtoCadastrado && (
+              <Button
+                onClick={() => handleCriaProduto()}
+                label="CADASTRAR PRODUTO"
+                severity="primary"
+              />
+            )}
+            {produtoCadastrado && (
+              <div>
+                <Button
+                  onClick={() => handleAlteraProduto()}
+                  label="EDITAR PRODUTO"
+                  severity="info"
+                />
+                <Button
+                  onClick={() => handleDeletaProduto()}
+                  label="EXCLUIR PRODUTO" severity="danger"
+                />
+              </div>
+            )}
           </div>
         </div>
         <div>
@@ -118,20 +185,19 @@ export default function CadastrarProduto({ produto }) {
               <p>{produto?.nome}</p>
               <div>
                 <p>SKU: {sku}</p>
-                <p>Categoria: {categoria ? categoria.name : 'Nenhuma'}</p>
-                <p>Ean: {ean || '0000000000000'}</p> 
+                <p>Categoria: {categoria ? categoria.name : "Nenhuma"}</p>
+                <p>Ean: {ean || "0000000000000"}</p>
                 <p>Preço: R$ {preco}</p>
                 <p>Preço de venda: R$ {precoVenda}</p>
-                <p>Lucro: R$ {lucroValor} ({lucroPercentual}%)</p>
+                <p>
+                  Lucro: R$ {lucroValor} ({lucroPercentual}%)
+                </p>
               </div>
             </div>
             <div className="formProduto__infoDois">
-              <p>Composição preço de Venda</p>
+              <p>Composição Preço de Venda</p>
               <div>
-                <p>Custo: R$ {produto?.precoCusto}</p>
                 <p>Frete: R$ 0</p>
-                <p>Comissão: R$ 7.36 (18%)</p>
-                <p>Lucro: R$ 2.90 (10%)</p>
               </div>
             </div>
           </div>
@@ -139,15 +205,23 @@ export default function CadastrarProduto({ produto }) {
             <div>
               <div className="tituloLucroInputs">
                 <FloatLabel className="input">
-                  <InputText id="titulo" onChange={(e) => setTitulo(e.target.value)} />
+                  <InputText
+                    id="titulo"
+                    value={titulo}
+                    onChange={(e) => setTitulo(e.target.value)}
+                  />
                   <label htmlFor="titulo">Título</label>
                 </FloatLabel>
                 <FloatLabel className="input">
-                  <InputText id="lucro" keyfilter="money" value={lucroValor} onChange={handleLucroChange} />
+                  <InputText
+                    id="lucro"
+                    keyfilter="money"
+                    value={lucroValor}
+                    onChange={(e) => handleLucroChange(e)}
+                  />
                   <label htmlFor="lucro">Lucro(%)</label>
                 </FloatLabel>
               </div>
-         
             </div>
 
             <Dropdown
@@ -163,25 +237,43 @@ export default function CadastrarProduto({ produto }) {
 
             <div className="inputEAN">
               <FloatLabel>
-                <InputText className="preco" id="preco" value={preco} onChange={handlePrecoChange} />
+                <InputText
+                  className="preco"
+                  id="preco"
+                  value={preco}
+                  onChange={handlePrecoChange}
+                />
                 <label htmlFor="preco">Preço</label>
               </FloatLabel>
 
               <FloatLabel className="eaninput">
-                <InputText id="EAN" value={ean} onChange={(e) => setEan(e.target.value)} />
-                <label htmlFor="EAN">Gerar EAN</label>
+                <InputText
+                  id="EAN"
+                  value={ean}
+                  onChange={(e) => setEan(e.target.value)}
+                />
+                <label htmlFor="EAN">EAN</label>
               </FloatLabel>
-              <Button label="GERAR EAN" className="btnEAN" severity="info" onClick={generateEAN} />
+              <Button
+                label="GERAR EAN"
+                className="btnEAN"
+                severity="info"
+                onClick={generateEAN}
+              />
             </div>
 
             <FloatLabel className="sku">
               <InputText id="sku" value={sku} onChange={handleSkuChange} />
               <label htmlFor="sku">SKU</label>
             </FloatLabel>
-            
+
             <FloatLabel className="imagemUrl">
-                <InputText id="imagemUrl" onChange={(e) => setImagemUrl(e.target.value)} />
-                <label htmlFor="imagemUrl">Link da Imagem</label>
+              <InputText
+                id="imagemUrl"
+                value={imagemUrl}
+                onChange={(e) => setImagemUrl(e.target.value)}
+              />
+              <label htmlFor="imagemUrl">Link da Imagem</label>
             </FloatLabel>
 
             <div className="checkboxGroup flex flex-wrap justify-content-center gap-3">
@@ -194,7 +286,11 @@ export default function CadastrarProduto({ produto }) {
                   checked={ingredients.includes("Cheese")}
                 />
                 <label htmlFor="ingredient1" className="bling">
-                  < img src="https://www.bling.com.br/site/assets//images/bling.svg" alt="" className="imagembling" />
+                  <img
+                    src="https://www.bling.com.br/site/assets//images/bling.svg"
+                    alt=""
+                    className="imagembling"
+                  />
                 </label>
               </div>
             </div>
