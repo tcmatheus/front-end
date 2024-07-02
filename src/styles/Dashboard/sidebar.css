@@ -11,7 +11,7 @@
 }
 
 .dashboardContent.open {
-  margin-left: 15%;
+  margin-left: 5%;
 }
 
 .dashboardContent.closed {
@@ -43,7 +43,7 @@
 }
 
 .custom-sidebar.open {
-  width: 15%;
+  width: 10%;
 }
 
 .custom-sidebar.closed {
