@@ -3,6 +3,7 @@ import { Checkbox } from "primereact/checkbox";
 import { FloatLabel } from "primereact/floatlabel";
 import { InputText } from "primereact/inputtext";
 import { InputTextarea } from "primereact/inputtextarea";
+import { InputNumber } from "primereact/inputnumber";
 import { Dropdown } from "primereact/dropdown";
 import { useState, useEffect } from "react";
 
@@ -77,6 +78,12 @@ export default function CadastrarProduto({ produto }) {
       categoria: {
         id: 9924431,
       },
+      camposCustomizados: [
+            {
+                idCampoCustomizado: 2560566,
+                valor: lucroValor
+            }
+        ],
     };
 
     await criarProduto(novoProduto);
@@ -106,6 +113,12 @@ export default function CadastrarProduto({ produto }) {
       categoria: {
         id: 9924431,
       },
+      camposCustomizados: [
+            {
+                idCampoCustomizado: 2560566,
+                valor: lucroValor
+            }
+        ],
     };
     await alterarProduto(produtoId, produtoAtualizado);
   };
@@ -113,7 +126,6 @@ export default function CadastrarProduto({ produto }) {
   const handleDeletaProduto = async () => {
     await deletarProduto(produtoId);
   };
-
 
   const onIngredientsChange = (e) => {
     let _ingredients = [...ingredients];
@@ -124,11 +136,26 @@ export default function CadastrarProduto({ produto }) {
 
   const generateEAN = (e) => {
     e.preventDefault();
-    let novoEan = "";
-    for (let i = 0; i < 14; i++) {
-      novoEan += Math.floor(Math.random() * 10);
+
+  let novoEan = "";
+  for (let i = 0; i < 13; i++) {
+    novoEan += Math.floor(Math.random() * 10);
+  }
+
+  let soma = 0;
+  for (let i = 0; i < 13; i++) {
+    let digito = parseInt(novoEan.charAt(i));
+    if (i % 2 === 0) {
+      soma += digito * 3;
+    } else {
+      soma += digito * 1;
     }
-    setEan(novoEan);
+  }
+
+  let checaDigito = (10 - (soma % 10)) % 10;
+  novoEan += checaDigito;
+
+  setEan(novoEan);
   };
 
   const handleLucroChange = (e) => {
@@ -157,15 +184,15 @@ export default function CadastrarProduto({ produto }) {
         <div className="imagemProduto__container">
           <img src={produto?.imagemURL} alt="" width={350} height={300} />
           <div className="botoes">
-          <FloatLabel className="imagemUrl">
-    <InputText
-        id="imagemUrl"
-        className="imagemtextoUrl"
-        style={{ width: '350px', }}
-        onChange={(e) => setImagemUrl(e.target.value)}
-    />
-    <label htmlFor="imagemUrl">Link da Imagem</label>
-</FloatLabel>
+            <FloatLabel className="imagemUrl">
+              <InputText
+                id="imagemUrl"
+                className="imagemtextoUrl"
+                style={{ width: "350px" }}
+                onChange={(e) => setImagemUrl(e.target.value)}
+              />
+              <label htmlFor="imagemUrl">Link da Imagem</label>
+            </FloatLabel>
           </div>
           <div className="imagemProduto__containerBtn">
             {!produtoCadastrado && (
@@ -184,7 +211,8 @@ export default function CadastrarProduto({ produto }) {
                 />
                 <Button
                   onClick={() => handleDeletaProduto()}
-                  label="EXCLUIR PRODUTO" severity="danger"
+                  label="EXCLUIR PRODUTO"
+                  severity="danger"
                 />
               </div>
             )}
@@ -224,13 +252,16 @@ export default function CadastrarProduto({ produto }) {
                   <label htmlFor="titulo">Título</label>
                 </FloatLabel>
                 <FloatLabel className="input">
-                  <InputText
+                  <InputNumber
+                    mode="currency"
+                    currency="BRL"
+                    locale="pt-BR"
                     id="lucro"
                     keyfilter="money"
                     value={lucroValor}
-                    onChange={(e) => handleLucroChange(e)}
+                    onValueChange={(e) => handleLucroChange(e)}
                   />
-                  <label htmlFor="lucro">Lucro(%)</label>
+                  <label htmlFor="lucro">Lucro(R$)</label>
                 </FloatLabel>
               </div>
             </div>
@@ -248,11 +279,14 @@ export default function CadastrarProduto({ produto }) {
 
             <div className="inputEAN">
               <FloatLabel>
-                <InputText
+                <InputNumber
+                  mode="currency"
+                  currency="BRL"
+                  locale="pt-BR"
                   className="preco"
                   id="preco"
                   value={preco}
-                  onChange={handlePrecoChange}
+                  onValueChange={handlePrecoChange}
                 />
                 <label htmlFor="preco">Preço</label>
               </FloatLabel>
@@ -280,13 +314,13 @@ export default function CadastrarProduto({ produto }) {
             <div className="checkboxGroup flex flex-wrap justify-content-center gap-3">
               <div className="flex checkbox align-items-center">
                 <Checkbox
-                  inputId="ingredient1"
-                  name="pizza"
-                  value="Cheese"
+                  inputId="integracao"
+                  name=""
+                  value=""
                   onChange={onIngredientsChange}
-                  checked={ingredients.includes("Cheese")}
+                  checked={ingredients.includes("")}
                 />
-                <label htmlFor="ingredient1" className="bling">
+                <label htmlFor="integracao" className="bling">
                   <img
                     src="https://www.bling.com.br/site/assets//images/bling.svg"
                     alt=""
