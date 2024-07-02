@@ -13,17 +13,19 @@ export default function DestaqueProduto({ produto }) {
   };
 
   return (
-    <div className="destaquesConjunto">
+    <>
       <div className="destaqueProduto" onClick={toggleModal}>
-        <img width={500} src={produto.imagemURL} alt={produto.nome}></img>
-        <h3 className="destaqueProduto__nome">{produto.nome}</h3>
-        <p className="destaqueProduto__preco">Preço: R${produto.preco}</p>
+        <div className="destaqueProduto__conteudo">
+          <img width={100} src={produto.imagemURL} alt={produto.nome}></img>
+          <p className="destaqueProduto__nome">{produto.nome}</p>
+          <p className="destaqueProduto__descricao">{produto.descricaoCurta}</p>
+          <p className="destaqueProduto__preco">R${produto.preco}</p>
+        </div>
         <div className="destaqueProduto__acoes">
           <button className="button">Detalhes</button>
         </div>
       </div>
       <ModalProduto onClose={closeModal} produto={produto} />
-    </div>
+    </>
   );
 }
-
