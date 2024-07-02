@@ -59,7 +59,7 @@ export default function CadastrarProduto({ produto }) {
       tipo: "P",
       formato: "S",
       codigo: sku,
-      gtin: ean,
+      ean: ean,
       situacao: "A",
       unidade: "Un",
       preco: preco,
