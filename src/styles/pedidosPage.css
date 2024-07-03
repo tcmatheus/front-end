@@ -1,5 +1,6 @@
 .pedidos__container{
-    margin-left: 8rem;
+    margin-left: 5px;
+    margin-right: 60px;
 }
 
 .pedidos__container > h1{

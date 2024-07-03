@@ -44,6 +44,7 @@
     border: 1px solid #4caf50;  
     padding: 0.5rem 1rem;
     transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    border-radius: 5px;
 }
 
 .forgotPassword:hover {
@@ -116,10 +117,22 @@
 
 .botaoregistrar{
   background-color: #4d2b2b00;
+  border-radius: 5px;
 }
 
 .auxiliarButtons{
   display: flex;
   width: 100%;
   justify-content: space-between;
+}
+
+
+.anonimoButton {
+  background-color: #4d2b2b00;
+  color: #ffffff;
+  border-color: #449e48;
+  border: 1px solid #4caf50;  
+  padding: 0.5rem 1rem;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  border-radius: 5px;
 }

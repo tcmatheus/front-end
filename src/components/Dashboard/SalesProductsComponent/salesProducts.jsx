@@ -12,7 +12,7 @@ export default function SalesProducts({
 }) {
   return (
     <div className="salesProductsContainer">
-      <p>Teste</p>
+      <p>Em Andamento</p>
     </div>
   );
 }

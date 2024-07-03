@@ -11,7 +11,7 @@ export default function DashboardFornecedor() {
   return (
     <div className="dashboardlayout">
       <div className="dashboardContent">
-        <div className="cardGroupContainer">
+        <div className="firstGroupContainer">
           {/* Total Vendas */}
           <div className="salesGroup">
             <SalesData
@@ -64,10 +64,10 @@ export default function DashboardFornecedor() {
             <SalesProducts />
           </div>
         </div>
-        {/* <div className="inferior__container">
+        <div className="secondGroupContainer">
           <Ranking />
           <ChamadosPerguntasSection />
-        </div> */}
+        </div>
       </div>
     </div>
   );
