@@ -60,7 +60,7 @@ export default function CadastrarProduto({ produto }) {
       tipo: "P",
       formato: "S",
       codigo: sku,
-      gtin: ean,
+      ean: ean,
       situacao: "A",
       unidade: "Un",
       preco: preco,
@@ -137,27 +137,43 @@ export default function CadastrarProduto({ produto }) {
   const generateEAN = (e) => {
     e.preventDefault();
 
-  let novoEan = "";
-  for (let i = 0; i < 13; i++) {
-    novoEan += Math.floor(Math.random() * 10);
-  }
-
-  let soma = 0;
-  for (let i = 0; i < 13; i++) {
-    let digito = parseInt(novoEan.charAt(i));
-    if (i % 2 === 0) {
-      soma += digito * 3;
-    } else {
-      soma += digito * 1;
+    if (precoVenda <= 0) {
+      alert("Defina um preço de venda válido antes de gerar o EAN.");
+      return;
     }
-  }
 
-  let checaDigito = (10 - (soma % 10)) % 10;
-  novoEan += checaDigito;
+    let novoEan = precoVenda.toString().padStart(12, '0'); 
 
-  setEan(novoEan);
+    let soma = 0;
+    for (let i = 0; i < 12; i++) {
+      let digito = parseInt(novoEan.charAt(i));
+      soma += i % 2 === 0 ? digito * 1 : digito * 3;
+    }
+    let checaDigito = (10 - (soma % 10)) % 10;
+    novoEan += checaDigito;
+
+    if (!isValidEAN(novoEan)) {
+      alert("O EAN gerado não é válido. Tente novamente.");
+      return;
+    }
+  
+    setEan(novoEan);
   };
-
+  
+  function isValidEAN(ean) {
+    if (ean.length !== 13 || !/^\d+$/.test(ean)) {
+      return false;
+    }
+  
+    let soma = 0;
+    for (let i = 0; i < 12; i++) {
+      let digito = parseInt(ean.charAt(i));
+      soma += i % 2 === 0 ? digito * 1 : digito * 3;
+    }
+    let checaDigito = (10 - (soma % 10)) % 10;
+  
+    return parseInt(ean.charAt(12)) === checaDigito;
+  }
   const handleLucroChange = (e) => {
     const valor = parseFloat(e.target.value) || 0;
     setLucroValor(valor);
@@ -338,7 +354,7 @@ export default function CadastrarProduto({ produto }) {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           rows={10}
-          cols={120}
+          cols={126}
         />
         <label htmlFor="description">Descrição do Produto</label>
       </FloatLabel>
