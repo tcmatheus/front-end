@@ -10,6 +10,16 @@ const getAllProducts = async () => {
   }
 };
 
+const getProductById = async (productId) => {
+  try {
+    const response = await axios.get(`http://localhost:4004/api/produtos/${productId}`);
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao obter o produto pelo ID:", error);
+    throw error;
+  }
+};
+
 const criarProduto = async (produto) => {
   try {
     const response = await axios.post(
@@ -54,4 +64,4 @@ const deletarProduto = async (produtoId) => {
   }
 };
 
-export { getAllProducts, criarProduto, alterarProduto, deletarProduto };
+export { getAllProducts, criarProduto, alterarProduto, deletarProduto, getProductById };
