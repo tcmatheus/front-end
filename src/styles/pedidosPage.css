@@ -1,8 +1,128 @@
-.pedidos__container{
-    margin-left: 5px;
-    margin-right: 60px;
-}
+.pedidos__container {
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+  
+  .pedidos__container h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .pedido__item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .pedido__item:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+  
+  .pedido__item img {
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+    object-fit: cover;
+  }
+  
+  .pedido__details {
+    flex-grow: 1;
+  }
+  
+  .pedido__item p {
+    margin: 4px 0;
+    color: #666;
+  }
+  
+  .pedido__item p:first-child {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .pedido__item p.pedido__popularity {
+    display: flex;
+    align-items: center;
+  }
+  
+  .pedido__item p.pedido__popularity span {
+    color: #ffd700; /* gold color for stars */
+    margin-right: 5px;
+  }
+  
+  .pedido__item p.pedido__price {
+    margin-left: auto;
+    font-weight: bold;
+  }
 
-.pedidos__container > h1{
-    font-size: 24px;
-}
+
+  .modal__container {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 600px; /* Ajuste conforme necessário */
+    margin: auto;
+  }
+  
+  .modal__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .modal__header div {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .modal__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .modal__item img {
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+  }
+  
+  .modal__item-details {
+    flex-grow: 1;
+  }
+  
+  .modal__item p {
+    margin: 4px 0;
+    color: #666;
+  }
+  
+  .modal__item p:first-child {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .modal__item p.modal__popularity {
+    display: flex;
+    align-items: center;
+    color: #ffd700; /* gold color for stars */
+  }
+  
+  .modal__item-price {
+    text-align: right;
+    font-weight: bold;
+  }
+  
+  
