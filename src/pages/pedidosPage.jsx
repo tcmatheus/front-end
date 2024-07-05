@@ -1,20 +1,23 @@
-import { useEffect, useState } from "react";
-import Ranking from "../components/Dashboard/Ranking/ranking";
+import React, { useEffect, useState } from "react";
 import StatusPedidosSection from "../components/Dashboard/StatusPedidos/statusPedidosSection";
 import "../styles/pedidosPage.css";
 import ModalPedidos from "../components/Dashboard/StatusPedidos/modalPedidos";
-import { getPedidos } from "./PagesService/pedidosService";
+import { getPedidoById, getPedidos } from "./PagesService/pedidosService";
+import { formatDate } from "../common/formatDate";
 
 export default function PedidosPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPedido, setSelectedPedido] = useState(null);
   const [pedidos, setPedidos] = useState([]);
 
-  const handleClickModal = () => {
+  const handleClickModal = (pedido) => {
+    setSelectedPedido(pedido);
     setIsModalOpen(true);
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
+    setSelectedPedido(null);
   };
 
   useEffect(() => {
@@ -22,8 +25,6 @@ export default function PedidosPage() {
       try {
         const pedidosData = await getPedidos();
         setPedidos(pedidosData.data);
-
-        
       } catch (error) {
         console.error("Erro ao obter pedidos:", error);
       }
@@ -35,29 +36,24 @@ export default function PedidosPage() {
   return (
     <section className="pedidos__container">
       <h1>Pedidos</h1>
-      <>
-        <StatusPedidosSection />
-
-        <div>
-          {pedidos.map((el) => {
-            return (
-              <div>
-                <p>{el.numero}</p>
-                <p>Data: {el.data}</p>
-                <p>Data Saída: {el.dataSaida}</p>
-                <p>Data Prevista: {el.dataPrevista}</p>
-                <p>Total: R$ {el.total}</p>
-              </div>
-            );
-          })}
-          <p></p>
-        </div>
-        <button onClick={handleClickModal}>CLICA</button>
-        <div>
-          <ModalPedidos isVisible={isModalOpen} onClose={handleCloseModal} />
-        </div>
-        {/* <Ranking /> */}
-      </>
+      <StatusPedidosSection />
+      <div>
+        {pedidos.map((pedido) => (
+          <div key={pedido.numero} className="pedido__item" onClick={() => handleClickModal(pedido)}>
+            <p>Pedido: {pedido.numero}</p>
+            <p>Data de Venda: {formatDate(pedido.data)}</p>
+            <p>Data Prevista: {formatDate(pedido.dataPrevista)}</p>
+            <p>Total do pedido: R$ {pedido.total}</p>
+          </div>
+        ))}
+      </div>
+      {selectedPedido && (
+        <ModalPedidos
+          pedido={selectedPedido}
+          isVisible={isModalOpen}
+          onClose={handleCloseModal}
+        />
+      )}
     </section>
   );
 }

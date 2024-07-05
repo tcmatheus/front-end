@@ -39,7 +39,7 @@
 
 .senhabox {
     width: 100%;
-    margin-top: 0px;
+    margin-top: 10px;
 }
 
 .p-dialog-content{
@@ -78,18 +78,15 @@
     background-color: #52855d; 
 }
 
-.dropdown {
-    padding: 12px 16px;
-    margin: 0 auto 10px auto; 
+.p-dropdown {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    height: 55px; 
     background-color: white;
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 16px 16px;
-    appearance: none;
-    cursor: pointer;
-    margin-top: 15px;
+    font-size: 16px;
 }
 
 
@@ -121,6 +118,72 @@
 .p-dialog-header{
     border-radius: 10px;
 }
+
+.inputfield {
+    width: 100%; 
+    padding: 20px; 
+    margin: 10px auto 20px auto; 
+    border: 1px solid #b10e0e; 
+    border-radius: 4px; 
+    font-size: 16px; 
+}
+
+.p-dialog .inputfield {
+    margin-bottom: 20px; 
+}
+
+.p-float-label.cpfbox {
+
+    margin-top: 25px;
+}
+
+.p-float-label.cnpjbox {
+
+    margin-top: 25px;
+}
+
+.p-float-label.phonebox {
+
+    margin-top: 25px;
+}
+
+.field-container.cnpjbox , .field-container.phonebox , .field-container.cpfbox {
+    flex: 1; 
+    margin-right: 10px; 
+}
+
+.field-container.phonebox {
+    margin-right: 0; 
+}
+
+.cnpjbox , .phonebox , .cpfbox {
+    width: 100%; 
+    border-radius: 4px;}
+
+.p-float-label .p-inputtext:focus {
+    border-color: #24a835;
+    box-shadow: 0 0 5px rgba(28, 153, 28, 0.5);
+}
+
+::-webkit-scrollbar {
+    width: 8px; 
+}
+
+::-webkit-scrollbar-track {
+    color: #24a835;
+    background: #f0f0f0;
+    border-radius: 4px; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: #083506; 
+    border-radius: 4px; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
 
 
 

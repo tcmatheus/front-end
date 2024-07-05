@@ -5,14 +5,24 @@ import DestaquesLista from "./Destaques/DestaquesLista";
 
 import SalesData from "./SalesDataComponent/salesData";
 import SalesProducts from "./SalesProductsComponent/salesProducts.jsx";
+import { Carousel } from "primereact/carousel";
 
 import "../../styles/Dashboard/dashboardPage.css";
 import "../../styles/Dashboard/card.css";
 import "../../styles/Dashboard/Destaques/destaques.css";
-
 import "../../styles/Dashboard/dashboardVendedor.css";
 
 export default function DashboardVendedor() {
+  const bannerImages = [
+    "https://files.oaiusercontent.com/file-f80sESPAssmfYxuQkFaV6gTl?se=2024-07-04T05%3A46%3A38Z&sp=r&sv=2023-11-03&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3De2303d85-35cb-4d84-bc03-7e61582e50e2.webp&sig=5XTecyhGWuHI12U9u718TeVcfmaIcBQMhlRefT%2BXHG8%3D",
+    "https://files.oaiusercontent.com/file-F2kUcd661jBSI4etDsvInBoL?se=2024-07-04T05%3A47%3A49Z&sp=r&sv=2023-11-03&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D956fcef0-abf4-4dc8-8d08-06fe8e6b3349.webp&sig=g9wzARbxSBBUng9SKkA1MJIpGfvg%2Bof%2B4y0KeDX75ik%3D",
+    "https://files.oaiusercontent.com/file-CvD3jhX4aUThpxllu1Dm5v4f?se=2024-07-04T05%3A48%3A58Z&sp=r&sv=2023-11-03&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D7ffbe8f7-f286-4704-a95b-ce2983869aef.webp&sig=Nbu16RZd3zEnQ/B8/WxDAElRFSPBtp75pQQayNKXYEA%3D"
+  ];
+
+  const bannerTemplate = (image) => {
+    return <img className="banner" src={image} alt="Banner" />;
+  };
+
   return (
     <div className="dashboardlayout">
       <div className="dashboardContent">
@@ -70,10 +80,15 @@ export default function DashboardVendedor() {
           </div>
         </div>
         <div className="container_banner">
-          <img
-            className="banner"
-            src="https://www.picsum.photos/2000/400"
-            alt="Banner"
+          <Carousel 
+            value={bannerImages} 
+            itemTemplate={bannerTemplate} 
+            numVisible={1} 
+            numScroll={1} 
+            autoplayInterval={3000} // Mudança de imagem a cada 2 segundos
+            className="custom-carousel"
+            circular
+            swipeable
           />
         </div>
         <div className="secondGroupContainer">
@@ -81,6 +96,8 @@ export default function DashboardVendedor() {
         </div>
       </div>
     </div>
+  
+  
     // <div className="dashboardlayout">
     //   <div className="dashboardContent">
     //     <div className="firstGroupContainer">

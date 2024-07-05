@@ -4,17 +4,13 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-
   margin: 10px 0px 10px 0px;
   border-radius: 20px;
-
   width: 100%;
   max-height: 800px;
   overflow: auto;
-
   background-color: #ffffff;
   font-family: "Mulish", sans-serif;
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }
 
 .destaquesConjunto::-webkit-scrollbar {
@@ -29,16 +25,21 @@
 .destaqueProduto {
   display: flex;
   flex-direction: column;
-
+  justify-content: space-between; /* Assegura que o conteúdo seja distribuído de forma uniforme */
   width: 300px;
-  height: 350px;
-
+  height: 380px; /* Ajuste na altura para acomodar o botão adequadamente */
   border-radius: 10px;
   margin: 10px;
-  padding: 10px;
-
+  padding: 15px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease-in-out, background-color 0.2s ease-in-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff; /* Cor de fundo para cada produto */
+}
+
+.destaqueProduto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 
 .destaqueProduto__conteudo {
@@ -49,65 +50,50 @@
 
 .destaqueProduto img {
   width: 100%;
-  height: 150px;
-
+  height: 180px;
   object-fit: cover;
   border-radius: 5px;
-
   background-position: center center;
 }
 
-.destaqueProduto:hover {
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
 .destaqueProduto__nome {
+  font-size: 18px;
+  color: #333;
   font-weight: bold;
-
-  font-size: 20px;
-  color: #083718;
-  font-weight: 500;
   margin: 5px 0;
-
+  overflow: hidden;
+  text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
   line-height: 1.2em;
   max-height: 3.6em;
 }
 
 .destaqueProduto__descricao {
-  color: #9fa2b4;
-  font-size: 15px !important;
+  font-size: 14px;
+  color: #666;
   padding: 0px;
   margin: 0px;
-
+  line-height: 1.5;
+  height: 42px;
+  overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  overflow: hidden;
   text-overflow: ellipsis;
-  line-height: 1.2em;
-  max-height: 3.6em;
 }
 
 .destaqueProduto__preco {
-  color: #083718;
-
-  font-size: 23px;
+  font-size: 20px;
+  color: #E65100;
   font-weight: bold;
-
-  padding: 0px;
-  margin: 10px 0px 0px 0px;
+  margin: 10px 0px;
 }
 
 .destaqueProduto__custo,
 .destaqueProduto__venda {
-  color: #9fa2b4;
-  font-size: 15px !important;
+  font-size: 15px;
   padding: 0px;
   margin: 0px;
 }
@@ -125,24 +111,23 @@
   display: flex;
   margin-top: 10px;
   align-content: center;
-  justify-content: flex-end;
+  justify-content: center; /* Centraliza o botão dentro da área de ações */
 }
 
 .button {
-  width: 100px;
+  width: 100%; /* Ajuste para que o botão ocupe toda a largura disponível */
   height: 35px;
-
   border: none;
   border-radius: 15px;
   cursor: pointer;
-
-  background-color: #18af46;
+  background-color: #126812;
   color: white;
+  padding: 6px 0; /* Padding para melhorar a visualização do texto no botão */
 }
 
 .button:hover {
   background-color: #0b6822;
-  transition: box-shadow 0.3s ease-in-out, background-color 0.2s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .loading {
@@ -155,6 +140,7 @@
   -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
   animation: l13 1s infinite linear;
 }
+
 @keyframes l13 {
   100% {
     transform: rotate(1turn);
