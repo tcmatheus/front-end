@@ -1,0 +1,30 @@
+/* bannerCarousel.css */
+.banner {
+  width: 100%;
+  height: 200px; /* Definindo uma altura fixa */
+  object-fit: cover; /* Para garantir que a imagem se ajuste corretamente */
+  display: block;
+  border-radius: 10px;
+}
+
+.container_banner {
+  margin: 20px 0;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.custom-carousel .p-carousel-container {
+  width: 100%;
+  max-width: none; /* Remover a limitação de largura */
+}
+
+.custom-carousel .p-carousel-indicators .p-carousel-indicator {
+  display: none; /* Ocultar indicadores */
+}
+
+.custom-carousel .p-carousel-prev,
+.custom-carousel .p-carousel-next {
+  display: none; /* Ocultar botões de navegação */
+}

@@ -18,34 +18,136 @@ export default function RegisterUser() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [selectedUserType, setSelectedUserType] = useState("");
+  const [cnpj, setCnpj] = useState("");
+  const [cpf, setCpf] = useState("");
+  const [phone, setPhone] = useState("");
   const userType = [{ name: "Vendedor" }, { name: "Fornecedor" }];
 
   const navigate = useNavigate();
 
+  const validateCNPJ = (cnpj) => {
+    cnpj = cnpj.replace(/[^\d]+/g, '');
+    if (cnpj === '' || cnpj.length !== 14) return false;
+
+    let length = cnpj.length - 2;
+    let numbers = cnpj.substring(0, length);
+    let digits = cnpj.substring(length);
+    let sum = 0;
+    let pos = length - 7;
+
+    for (let i = length; i >= 1; i--) {
+      sum += numbers.charAt(length - i) * pos--;
+      if (pos < 2) pos = 9;
+    }
+
+    let result = sum % 11 < 2 ? 0 : 11 - sum % 11;
+    if (result != digits.charAt(0)) return false;
+
+    length = length + 1;
+    numbers = cnpj.substring(0, length);
+    sum = 0;
+    pos = length - 7;
+    for (let i = length; i >= 1; i--) {
+      sum += numbers.charAt(length - i) * pos--;
+      if (pos < 2) pos = 9;
+    }
+
+    result = sum % 11 < 2 ? 0 : 11 - sum % 11;
+    return result == digits.charAt(1);
+  };
+
+  const validateCPF = (cpf) => {
+    cpf = cpf.replace(/[^\d]+/g, '');
+    if (cpf === '' || cpf.length !== 11) return false;
+
+    let sum = 0;
+    let remainder;
+    for (let i = 1; i <= 9; i++)
+      sum += parseInt(cpf[i - 1]) * (11 - i);
+    remainder = (sum * 10) % 11;
+
+    if (remainder == 10 || remainder == 11) remainder = 0;
+    if (remainder != parseInt(cpf[9])) return false;
+
+    sum = 0;
+    for (let i = 1; i <= 10; i++)
+      sum += parseInt(cpf[i - 1]) * (12 - i);
+    remainder = (sum * 10) % 11;
+
+    if (remainder == 10 || remainder == 11) remainder = 0;
+    if (remainder != parseInt(cpf[10])) return false;
+
+    return true;
+  };
+
   const handleRegister = async () => {
+    setError(""); // Clear previous errors
     try {
+      if (selectedUserType.name === "Fornecedor" && !validateCNPJ(cnpj)) {
+        throw new Error("CNPJ inválido.");
+      } else if (selectedUserType.name === "Vendedor" && !validateCPF(cpf)) {
+        throw new Error("CPF inválido.");
+      }
+
       const userCredential = await registerUser(email, password);
-      await db.collection("users").doc(userCredential.user.uid).set({
+      const userInfo = {
         userType: selectedUserType.name,
         email: email,
-      });
+        phone: phone,
+        ...(selectedUserType.name === "Fornecedor" && { cnpj }),
+        ...(selectedUserType.name === "Vendedor" && { cpf }),
+      };
 
-      loginUser(email, password)
-        .then(() => {
-          navigate("/dashboard");
-        })
-        .catch((error) => {
-          console.error("Erro no login:", error.message);
-          setError("Falha no login. Verifique seu e-mail e senha.");
-        });
+      await db.collection("users").doc(userCredential.user.uid).set(userInfo);
+      await loginUser(email, password);
+      navigate("/dashboard");
       setVisible(false);
     } catch (error) {
-      console.error("Erro ao salvar no Firestore:", error);
-      setError(
-        "Erro ao registrar. Por favor, verifique os detalhes e tente novamente."
-      );
+      if (error.code === 'auth/email-already-in-use') {
+        setError("Mude o email, esse já está cadastrado.");
+      } else if (error.message.includes("inválido")) {
+        setError("Documento inválido. Por favor, verifique o número e tente novamente.");
+      } else {
+        setError("Erro ao registrar: " + error.message);
+      }
+      console.error("Registration Error:", error);
     }
   };
+
+  const additionalFields = selectedUserType.name === "Fornecedor" ?
+    <>
+      <FloatLabel className="cnpjbox">
+        <InputText
+        className="cnpjbox"
+          id="cnpj"
+          value={cnpj}
+          onChange={(e) => setCnpj(e.target.value)}
+        />
+        <label htmlFor="cnpj">CNPJ</label>
+      </FloatLabel>
+      <FloatLabel className="phonebox">
+        <InputText
+        className="phonebox"
+          type="text" 
+          id="phone"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+        />
+        <label htmlFor="phone">Telefone</label>
+      </FloatLabel>
+    </> : selectedUserType.name === "Vendedor" ?
+    <>
+      <FloatLabel className="cpfbox">
+        <InputText
+          type="text"
+          className="cpfbox"
+          id="cpf"
+          value={cpf}
+          onChange={(e) => setCpf(e.target.value)}
+        />
+        <label htmlFor="cpf">CPF</label>
+      </FloatLabel>
+    </> : null;
 
   return (
     <>
@@ -59,12 +161,10 @@ export default function RegisterUser() {
         className="nameregistrar"
         header="Registrar-se"
         visible={visible}
-        style={{ width: "44vw", height: "53vh",}}
-        onHide={() => {
-          if (!visible) return;
-          setVisible(false);
-        }}
+        style={{ width: "44vw", height: "53vh"}}
+        onHide={() => setVisible(false)}
       >
+        {error && <div className="error-message">{error}</div>} {/* Show error message if there is one */}
         <FloatLabel className="emailbox">
           <InputText
             type="email"
@@ -84,7 +184,6 @@ export default function RegisterUser() {
             className="senha"
             id="password"
             feedback={false}
-            
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -100,11 +199,12 @@ export default function RegisterUser() {
           checkmark={true}
           highlightOnSelect={false}
         />
+        {additionalFields}
         <Button
           unstyled={true}
           className="registrar"
           label="Registrar!"
-          onClick={() => handleRegister()}
+          onClick={handleRegister}
         ></Button>
       </Dialog>
     </>
