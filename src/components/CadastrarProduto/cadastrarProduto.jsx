@@ -23,7 +23,7 @@ export default function CadastrarProduto({ produto }) {
   const [description, setDescription] = useState("");
   const [lucroValor, setLucroValor] = useState(0);
   const [lucroPercentual, setLucroPercentual] = useState(0);
-  const [ean, setEan] = useState("");
+  const [gtin, setGtin] = useState("");
   const [preco, setPreco] = useState(0);
   const [precoVenda, setPrecoVenda] = useState(0);
   const [sku, setSku] = useState("");
@@ -39,7 +39,7 @@ export default function CadastrarProduto({ produto }) {
       setProdutoId(produto.id);
       setTitulo(produto.nome || "");
       setSku(produto.codigo || "");
-      setEan(produto.EAN || "");
+      setGtin(produto.gtin);
       setPreco(produto.preco || 0);
       setPrecoVenda(produto.precoVenda || 0);
       setLucroValor(produto.lucroValor || 0);
@@ -60,7 +60,7 @@ export default function CadastrarProduto({ produto }) {
       tipo: "P",
       formato: "S",
       codigo: sku,
-      ean: ean,
+      gtin: gtin,
       situacao: "A",
       unidade: "Un",
       preco: preco,
@@ -95,7 +95,7 @@ export default function CadastrarProduto({ produto }) {
       tipo: "P",
       formato: "S",
       codigo: sku,
-      gtin: ean,
+      gtin: gtin,
       situacao: "A",
       unidade: "Un",
       preco: preco,
@@ -138,7 +138,7 @@ export default function CadastrarProduto({ produto }) {
     e.preventDefault();
 
     if (precoVenda <= 0) {
-      alert("Defina um preço de venda válido antes de gerar o EAN.");
+      alert("Defina um preço de venda válido antes de gerar o gtin.");
       return;
     }
 
@@ -153,26 +153,26 @@ export default function CadastrarProduto({ produto }) {
     novoEan += checaDigito;
 
     if (!isValidEAN(novoEan)) {
-      alert("O EAN gerado não é válido. Tente novamente.");
+      alert("O gtin gerado não é válido. Tente novamente.");
       return;
     }
   
-    setEan(novoEan);
+    setGtin(novoEan);
   };
   
-  function isValidEAN(ean) {
-    if (ean.length !== 13 || !/^\d+$/.test(ean)) {
+  function isValidEAN(gtin) {
+    if (gtin.length !== 13 || !/^\d+$/.test(gtin)) {
       return false;
     }
   
     let soma = 0;
     for (let i = 0; i < 12; i++) {
-      let digito = parseInt(ean.charAt(i));
+      let digito = parseInt(gtin.charAt(i));
       soma += i % 2 === 0 ? digito * 1 : digito * 3;
     }
     let checaDigito = (10 - (soma % 10)) % 10;
   
-    return parseInt(ean.charAt(12)) === checaDigito;
+    return parseInt(gtin.charAt(12)) === checaDigito;
   }
   const handleLucroChange = (e) => {
     const valor = parseFloat(e.target.value) || 0;
@@ -241,7 +241,7 @@ export default function CadastrarProduto({ produto }) {
               <div>
                 <p>SKU: {sku}</p>
                 <p>Categoria: {categoria ? categoria.name : "Nenhuma"}</p>
-                <p>Ean: {ean || "0000000000000"}</p>
+                <p>gtin: {gtin || "0000000000000"}</p>
                 <p>Preço: R$ {preco}</p>
                 <p>Preço de venda: R$ {precoVenda}</p>
                 <p>
@@ -268,14 +268,12 @@ export default function CadastrarProduto({ produto }) {
                   <label htmlFor="titulo">Título</label>
                 </FloatLabel>
                 <FloatLabel className="input">
-                  <InputNumber
-                    mode="currency"
-                    currency="BRL"
-                    locale="pt-BR"
+                  <InputText
                     id="lucro"
                     keyfilter="money"
                     value={lucroValor}
-                    onValueChange={(e) => handleLucroChange(e)}
+                    onChange={(e) => handleLucroChange(e)}
+                    // onChange={(e) => handleLucroChange(e)}
                   />
                   <label htmlFor="lucro">Lucro(R$)</label>
                 </FloatLabel>
@@ -309,14 +307,14 @@ export default function CadastrarProduto({ produto }) {
 
               <FloatLabel className="eaninput">
                 <InputText
-                  id="EAN"
-                  value={ean}
-                  onChange={(e) => setEan(e.target.value)}
+                  id="gtin"
+                  value={gtin}
+                  onChange={(e) => setGtin(e.target.value)}
                 />
-                <label htmlFor="EAN">EAN</label>
+                <label htmlFor="gtin">GTIN</label>
               </FloatLabel>
               <Button
-                label="GERAR EAN"
+                label="GERAR gtin"
                 className="btnEAN"
                 severity="info"
                 onClick={generateEAN}
