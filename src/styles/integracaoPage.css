@@ -1,0 +1,61 @@
+.integracaoContainer {
+    padding: 20px;
+  }
+  
+  .integracaoContainer h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .integrationsHeader {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+  }
+  
+  .integrationLogoHeader {
+    width: 100px;
+    height: auto;
+  }
+  
+  .integrationsList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .integrationItem {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .integrationLogo {
+    width: 50px;
+    height: auto;
+    margin-right: 20px;
+  }
+  
+  .integrationDetails {
+    flex-grow: 1;
+  }
+  
+  .integrationDetails h2 {
+    margin: 0 0 10px 0;
+  }
+  
+  .removeButton {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .removeButton:hover {
+    background-color: darkred;
+  }
+  

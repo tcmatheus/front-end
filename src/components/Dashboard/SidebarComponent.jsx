@@ -3,7 +3,6 @@ import "../../styles/Dashboard/sidebar.css";
 import { Link, useNavigate } from "react-router-dom";
 import { logoutUser } from "../../components/Login/Services/loginService";
 import { useState } from "react";
-import "../../styles/Dashboard/sidebar.css";
 
 export default function SidebarComponent() {
   const [isHovered, setIsHovered] = useState(false);
@@ -16,13 +15,13 @@ export default function SidebarComponent() {
 
   const items = [
     { label: "Dashboard", icon: "pi pi-fw pi-home", url: "/dashboard" },
-    { label: "Produtos", icon: "pi pi-fw pi-box", url: "produtos" },
-    { label: "Pedidos", icon: "pi pi-fw pi-receipt", url: "pedidos" },
-    { label: "Integração", icon: "pi pi-fw pi-slack", url: "minhaIntegracao" },
-    { label: "Comissões", icon: "pi pi-fw pi-dollar", url: "comissoes" },
-    { label: "Vendedores", icon: "pi pi-fw pi-users", url: "vendedores" },
-    { label: "Configurações", icon: "pi pi-fw pi-cog", url: "configuracoes" },
-    { label: "Ranking", icon: "pi pi-fw pi-sort-up-fill", url: "rankings" },
+    { label: "Produtos", icon: "pi pi-fw pi-box", url: "/dashboard/produtos" }, // Certifique-se de que a URL esteja correta
+    { label: "Pedidos", icon: "pi pi-fw pi-receipt", url: "/dashboard/pedidos" },
+    { label: "Integração", icon: "pi pi-fw pi-slack", url: "/dashboard/integracao" }, // Certifique-se de que a URL esteja correta
+    { label: "Comissões", icon: "pi pi-fw pi-dollar", url: "/dashboard/comissoes" },
+    { label: "Vendedores", icon: "pi pi-fw pi-users", url: "/dashboard/vendedores" },
+    { label: "Configurações", icon: "pi pi-fw pi-cog", url: "/dashboard/configuracoes" },
+    { label: "Ranking", icon: "pi pi-fw pi-sort-up-fill", url: "/dashboard/rankings" },
   ];
 
   const navigate = useNavigate();
