@@ -14,9 +14,9 @@ import "../../styles/Dashboard/dashboardVendedor.css";
 
 export default function DashboardVendedor() {
   const bannerImages = [
-    "https://files.oaiusercontent.com/file-f80sESPAssmfYxuQkFaV6gTl?se=2024-07-04T05%3A46%3A38Z&sp=r&sv=2023-11-03&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3De2303d85-35cb-4d84-bc03-7e61582e50e2.webp&sig=5XTecyhGWuHI12U9u718TeVcfmaIcBQMhlRefT%2BXHG8%3D",
-    "https://files.oaiusercontent.com/file-F2kUcd661jBSI4etDsvInBoL?se=2024-07-04T05%3A47%3A49Z&sp=r&sv=2023-11-03&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D956fcef0-abf4-4dc8-8d08-06fe8e6b3349.webp&sig=g9wzARbxSBBUng9SKkA1MJIpGfvg%2Bof%2B4y0KeDX75ik%3D",
-    "https://files.oaiusercontent.com/file-CvD3jhX4aUThpxllu1Dm5v4f?se=2024-07-04T05%3A48%3A58Z&sp=r&sv=2023-11-03&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D7ffbe8f7-f286-4704-a95b-ce2983869aef.webp&sig=Nbu16RZd3zEnQ/B8/WxDAElRFSPBtp75pQQayNKXYEA%3D"
+    "https://files.oaiusercontent.com/file-yAfT8AUzcTYREw2vDTHlbw2j?se=2024-07-16T22%3A02%3A40Z&sp=r&sv=2023-11-03&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3Dbdeff95b-81da-4246-93f4-8fb4590b0a06.webp&sig=%2B/B8IvPT3EzYoMiKtmbb0TCyRFz9kP2NDA4i73V12KE%3D",
+    "https://files.oaiusercontent.com/file-TVgVpH6j7ur6zvtWzn46ilpJ?se=2024-07-16T22%3A03%3A35Z&sp=r&sv=2023-11-03&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3Dc6db1f9d-275c-47ec-a16c-72e809dc9a15.webp&sig=CrRNQZU8Qf1woXNSUsUbOAMM9vFWgC8i54WC/Sl2lE8%3D",
+    "https://files.oaiusercontent.com/file-1nbW22NVz6SE4FgZ0D6kujBm?se=2024-07-16T22%3A04%3A06Z&sp=r&sv=2023-11-03&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3Daa9ba6e1-0c8d-4c6b-954a-c6cc6ebb4f4a.webp&sig=oBmpp9QX3yIAxeRB9smOc88uysDF3mi1p5c2mc8ZWDU%3D"
   ];
 
   const bannerTemplate = (image) => {

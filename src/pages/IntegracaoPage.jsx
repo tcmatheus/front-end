@@ -17,10 +17,6 @@ export default function IntegracaoPage() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [integrationToRemove, setIntegrationToRemove] = useState(null);
 
-  useEffect(() => {
-    console.log('Carrossel inicializado');
-  }, []);
-
   const openModal = (name) => {
     setIntegrationToRemove(name);
     setModalIsOpen(true);

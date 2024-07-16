@@ -1,126 +1,139 @@
 .integracaoContainer {
-    padding: 20px;
-    max-width: 1200px; /* Limitar a largura máxima */
-    margin: 0 auto; /* Centralizar a página */
-  }
-  
-  .integracaoContainer h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .sliderContainer {
-    margin-bottom: 30px;
-    width: 100%;
-    overflow: hidden;
-  }
-  
-  .integrationsHeader {
-    width: 100%;
-  }
-  
-  .sliderItem {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #ddd;
-    padding: 10px;
-    box-sizing: border-box;
-    height: 100px;
-  }
-  
-  .integrationLogoHeader {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-  }
-  
-  .integrationsList {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .integrationItem {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 8px;
-  }
-  
-  .integrationLogo {
-    width: 150px;
-    height: auto;
-    margin-right: 20px;
-  }
-  
-  .integrationDetails {
-    flex-grow: 1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .integrationDetails h2 {
-    margin: 0 0 10px 0;
-  }
-  
-  .removeButton {
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .removeButton i {
-    font-size: 24px;
-    color: green;
-  }
-  
-  .modal {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .overlay {
-    background: rgba(0, 0, 0, 0.5);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .confirmButton,
-  .cancelButton {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .confirmButton:hover,
-  .cancelButton:hover {
-    background-color: #0056b3;
-  }
-  
-  .cancelButton {
-    background-color: grey;
-  }
-  
-  .cancelButton:hover {
-    background-color: darkgrey;
-  }
-  
+  padding: 20px;
+  max-width: 1200px; /* Limitar a largura máxima */
+  margin: 0 auto; /* Centralizar a página */
+  background-color: #f5f5f5; /* Fundo para parecer com o design */
+}
+
+.integracaoContainer h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.sliderContainer {
+  margin-bottom: 30px;
+  width: 100%;
+  overflow: hidden;
+  background-color: #fff; /* Fundo branco para destacar o carrossel */
+  border: 1px solid #ddd; /* Borda para o carrossel */
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.integrationsHeader .slick-list {
+  padding: 0 10px;
+}
+
+.integrationsHeader .slick-track {
+  display: flex;
+  align-items: center;
+}
+
+.sliderItem {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-sizing: border-box;
+  height: 100px;
+}
+
+.integrationLogoHeader {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.integrationsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #fff; /* Fundo branco para destacar a lista */
+  padding: 10px;
+  border: 1px solid #ddd; /* Borda para a lista */
+  border-radius: 8px;
+}
+
+.integrationItem {
+  display: flex;
+  align-items: center;
+  border: 1px solid #4caf50; /* Borda verde */
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.integrationLogo {
+  width: 50px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.integrationDetails {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.integrationDetails h2 {
+  margin: 0 0 10px 0;
+}
+
+.removeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.removeButton i {
+  font-size: 24px;
+  color: #4caf50; /* Cor verde */
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirmButton,
+.cancelButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.confirmButton:hover,
+.cancelButton:hover {
+  background-color: #0056b3;
+}
+
+.cancelButton {
+  background-color: grey;
+}
+
+.cancelButton:hover {
+  background-color: darkgrey;
+}

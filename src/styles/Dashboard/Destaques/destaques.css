@@ -11,6 +11,7 @@
   overflow: auto;
   background-color: #ffffff;
   font-family: "Mulish", sans-serif;
+  margin-left: -35px;
 }
 
 .destaquesConjunto::-webkit-scrollbar {

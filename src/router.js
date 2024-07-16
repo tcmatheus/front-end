@@ -5,6 +5,7 @@ import DashboardLayout from "./layout/dashboardLayout";
 import DashboardPage from "./pages/dashboard";
 import ProdutosPage from "./pages/produtosPage";
 import IntegracaoPage from './pages/IntegracaoPage'; // Importe a nova página
+import VendedoresPage from './pages/VendedoresPage';
 import AuthTokenPage from "./pages/authTokenPage";
 import FormLogin from "./components/Login/formLogin";
 
@@ -20,6 +21,7 @@ const AppRouter = () => {
             <Route path="pedidos" element={<PedidosPage />} />
             <Route path="produtos" element={<ProdutosPage />} />
             <Route path="integracao" element={<IntegracaoPage />} /> {/* Use caminho relativo aqui */}
+            <Route path="vendedores" element={<VendedoresPage />} />
           </Route>
         </Route>
       </Routes>
