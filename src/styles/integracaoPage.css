@@ -1,5 +1,7 @@
 .integracaoContainer {
     padding: 20px;
+    max-width: 1200px; /* Limitar a largura máxima */
+    margin: 0 auto; /* Centralizar a página */
   }
   
   .integracaoContainer h1 {
@@ -7,15 +9,30 @@
     margin-bottom: 20px;
   }
   
-  .integrationsHeader {
-    display: flex;
-    justify-content: space-around;
+  .sliderContainer {
     margin-bottom: 30px;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .integrationsHeader {
+    width: 100%;
+  }
+  
+  .sliderItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-sizing: border-box;
+    height: 100px;
   }
   
   .integrationLogoHeader {
-    width: 100px;
-    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
   }
   
   .integrationsList {
@@ -33,13 +50,16 @@
   }
   
   .integrationLogo {
-    width: 50px;
+    width: 150px;
     height: auto;
     margin-right: 20px;
   }
   
   .integrationDetails {
     flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   
   .integrationDetails h2 {
@@ -47,15 +67,60 @@
   }
   
   .removeButton {
-    background-color: red;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .removeButton i {
+    font-size: 24px;
+    color: green;
+  }
+  
+  .modal {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .overlay {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .confirmButton,
+  .cancelButton {
+    background-color: #007bff;
     color: white;
     border: none;
-    padding: 10px;
+    padding: 10px 20px;
+    margin: 10px;
     cursor: pointer;
     border-radius: 5px;
   }
   
-  .removeButton:hover {
-    background-color: darkred;
+  .confirmButton:hover,
+  .cancelButton:hover {
+    background-color: #0056b3;
+  }
+  
+  .cancelButton {
+    background-color: grey;
+  }
+  
+  .cancelButton:hover {
+    background-color: darkgrey;
   }
   
