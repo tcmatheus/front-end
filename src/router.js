@@ -8,6 +8,7 @@ import IntegracaoPage from './pages/IntegracaoPage'; // Importe a nova página
 import VendedoresPage from './pages/VendedoresPage';
 import AuthTokenPage from "./pages/authTokenPage";
 import FormLogin from "./components/Login/formLogin";
+import FornecedoresPage from './pages/FornecedoresPage';
 
 const AppRouter = () => {
   return (
@@ -22,6 +23,8 @@ const AppRouter = () => {
             <Route path="produtos" element={<ProdutosPage />} />
             <Route path="integracao" element={<IntegracaoPage />} /> {/* Use caminho relativo aqui */}
             <Route path="vendedores" element={<VendedoresPage />} />
+            <Route path="Fornecedores" element={<FornecedoresPage />} />
+            
           </Route>
         </Route>
       </Routes>

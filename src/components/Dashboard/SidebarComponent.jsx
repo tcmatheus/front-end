@@ -18,7 +18,7 @@ export default function SidebarComponent() {
     { label: "Produtos", icon: "pi pi-fw pi-box", url: "/dashboard/produtos" }, // Certifique-se de que a URL esteja correta
     { label: "Pedidos", icon: "pi pi-fw pi-receipt", url: "/dashboard/pedidos" },
     { label: "Integração", icon: "pi pi-fw pi-slack", url: "/dashboard/integracao" }, // Certifique-se de que a URL esteja correta
-    { label: "Comissões", icon: "pi pi-fw pi-dollar", url: "/dashboard/comissoes" },
+    { label: "Fornecedores", icon: "pi pi-fw pi-truck", url: "fornecedores" },
     { label: "Vendedores", icon: "pi pi-fw pi-users", url: "/dashboard/vendedores" },
     { label: "Configurações", icon: "pi pi-fw pi-cog", url: "/dashboard/configuracoes" },
     { label: "Ranking", icon: "pi pi-fw pi-sort-up-fill", url: "/dashboard/rankings" },
