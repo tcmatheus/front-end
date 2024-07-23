@@ -10,6 +10,7 @@ export default function Navbar() {
       <div className="navbar-container">
         <h1>Dashboard</h1>
         <div className="navbar-profile">
+          <h2>Saldo: R$ 00,00</h2>
           <i className="pi pi-bell"></i>
           <p>{user && user.email ? user.email : 'Usuário Anônimo'}</p>
           <Avatar icon="pi pi-user" shape="circle" size="large" />

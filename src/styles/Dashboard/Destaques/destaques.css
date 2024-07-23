@@ -1,103 +1,149 @@
-.destaquesContainer {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 20px;
-  width: 1200px; 
-  background-color: #fff;
-  text-align: center;
-  align-items: center;
-}
-
 .destaquesConjunto {
-  background-color: #fff;
-  width: auto;
-  text-align: center;
-  margin-top: 20px;
-  padding: 10px;
-}
-
-.scrollContainer {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
   align-items: center;
-  background-color: white;
+  justify-content: center;
+  margin: 10px 0px 10px 0px;
+  border-radius: 20px;
   width: 100%;
-  max-height: 100%;
-  overflow-y: auto;
-  padding: 10px;
-  gap: 40px;
+  max-height: 800px;
+  overflow: auto;
+  background-color: #ffffff;
+  font-family: "Mulish", sans-serif;
+  margin-left: -35px;
 }
 
-.destaquesContainer {
-  width: 100%;
-  max-height: 400px; 
+.destaquesConjunto::-webkit-scrollbar {
+  width: 6px;
+}
+
+.destaquesConjunto::-webkit-scrollbar-thumb {
+  background-color: #18af46;
+  border-radius: 10px;
 }
 
 .destaqueProduto {
-  width: 220px; 
-  height: auto; 
-  align-content: center;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Assegura que o conteúdo seja distribuído de forma uniforme */
+  width: 300px;
+  height: 380px; /* Ajuste na altura para acomodar o botão adequadamente */
+  border-radius: 10px;
   margin: 10px;
-  padding: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  transition: box-shadow 0.3s ease-in-out, background-color 0.2s ease-in-out;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff; /* Cor de fundo para cada produto */
 }
 
 .destaqueProduto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  background-color: #5cdd6f18; 
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.destaqueProduto__conteudo {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .destaqueProduto img {
   width: 100%;
-  height: 150px; 
+  height: 180px;
   object-fit: cover;
-  border-radius: 3px;
+  border-radius: 5px;
+  background-position: center center;
 }
 
 .destaqueProduto__nome {
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 18px;
   color: #333;
+  font-weight: bold;
   margin: 5px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  line-height: 1.2em;
+  max-height: 3.6em;
 }
 
-.destaqueProduto__preco, .destaqueProduto__custo, .destaqueProduto__venda {
+.destaqueProduto__descricao {
   font-size: 14px;
   color: #666;
-  font-weight: 700;
+  padding: 0px;
+  margin: 0px;
+  line-height: 1.5;
+  height: 42px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+.destaqueProduto__preco {
+  font-size: 20px;
+  color: #E65100;
+  font-weight: bold;
+  margin: 10px 0px;
+}
+
+.destaqueProduto__custo,
+.destaqueProduto__venda {
+  font-size: 15px;
+  padding: 0px;
+  margin: 0px;
 }
 
 .destaqueProduto__custo {
-  color: #3745C1;
+  color: #3745c1;
 }
 
 .destaqueProduto__venda {
   font-size: 18px;
-  color: #54B00C;
+  color: #54b00c;
 }
 
 .destaqueProduto__acoes {
   display: flex;
-  justify-content: space-between;
   margin-top: 10px;
+  align-content: center;
+  justify-content: center; /* Centraliza o botão dentro da área de ações */
 }
 
 .button {
+  width: 100%; /* Ajuste para que o botão ocupe toda a largura disponível */
+  height: 35px;
   border: none;
-  padding: 5px 10px;
-  border-radius: 3px;
-  background-color: #18af46;
-  color: white;
+  border-radius: 15px;
   cursor: pointer;
-  margin-left: 65px;
+  background-color: #126812;
+  color: white;
+  padding: 6px 0; /* Padding para melhorar a visualização do texto no botão */
 }
 
 .button:hover {
   background-color: #0b6822;
+  transition: background-color 0.3s ease-in-out;
 }
 
+.loading {
+  width: 100px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(farthest-side, #54b00c 94%, #0000) top/8px 8px
+      no-repeat,
+    conic-gradient(#0000 30%, #54b00c);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+  animation: l13 1s infinite linear;
+}
+
+@keyframes l13 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
